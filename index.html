@@ -136,6 +136,15 @@
     background-size: 50px 50px;
   }
 
+  #fireCanvas {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.35;
+    z-index: 1;
+  }
+
   .hero-content { position: relative; z-index: 2; max-width: 600px; }
 
   .hero-eyebrow {
@@ -347,6 +356,17 @@
     overflow: hidden;
   }
 
+  .product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .product-card:hover .product-img img {
+    transform: scale(1.05);
+  }
+
   .product-img svg {
     width: 50px; height: 50px;
     color: #333;
@@ -503,6 +523,13 @@
     border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
     border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .cart-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .cart-item-img svg { width: 30px; height: 30px; color: #444; }
@@ -1203,6 +1230,7 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
+    <canvas id="fireCanvas"></canvas>
 
     <div class="hero-content">
       <div class="hero-eyebrow">UL Listed · BNBC Compliant · Home Delivery</div>
@@ -1831,7 +1859,7 @@ const products = [
     rating: 4.8,
     reviews: 124,
     badge: 'bestseller',
-    image: 'extinguisher',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8iShMzzmBsP3HYNaOKAtPuGcU8hW5yftcfGs1bVUrXezV47MZfYx2WfI&s=10',
     specs: 'Suitable for: Class A, B, C fires · Easy to use · 1-year warranty'
   },
   {
@@ -1843,7 +1871,7 @@ const products = [
     rating: 4.9,
     reviews: 89,
     badge: 'popular',
-    image: 'extinguisher',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8iShMzzmBsP3HYNaOKAtPuGcU8hW5yftcfGs1bVUrXezV47MZfYx2WfI&s=10',
     specs: 'Suitable for: Class A, B, C fires · Home & office use · Certified'
   },
   {
@@ -1855,7 +1883,7 @@ const products = [
     rating: 4.7,
     reviews: 156,
     badge: 'sale',
-    image: 'extinguisher',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8iShMzzmBsP3HYNaOKAtPuGcU8hW5yftcfGs1bVUrXezV47MZfYx2WfI&s=10',
     specs: 'Heavy duty · Class A, B, C · Refillable'
   },
   {
@@ -1867,7 +1895,7 @@ const products = [
     rating: 4.8,
     reviews: 72,
     badge: null,
-    image: 'extinguisher',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8iShMzzmBsP3HYNaOKAtPuGcU8hW5yftcfGs1bVUrXezV47MZfYx2WfI&s=10',
     specs: 'Large spaces · Factory/warehouse · High capacity'
   },
   {
@@ -1879,7 +1907,7 @@ const products = [
     rating: 4.6,
     reviews: 45,
     badge: 'new',
-    image: 'extinguisher',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQLHUeYqEI_AGbpTZLYwtH5Q5krf0IHCWpMwDA8k6XHQ&s=10',
     specs: 'Class B & electrical fires · Clean agent · No residue'
   },
   {
@@ -1891,7 +1919,7 @@ const products = [
     rating: 4.9,
     reviews: 203,
     badge: 'bestseller',
-    image: 'detector',
+    image: 'hhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT14eI29LOWNplOUEXRQVXk4rZGapzlZMF0dnR2pVimnQ&s=10',
     specs: 'Early detection · Low battery alert · Easy install'
   },
   {
@@ -1903,7 +1931,7 @@ const products = [
     rating: 4.7,
     reviews: 87,
     badge: null,
-    image: 'detector',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2021/1/VE/CD/VT/16112517/smoke-detectors-500x500.jpg',
     specs: 'Fast flaming fires · 10-year life · Test button'
   },
   {
@@ -1915,7 +1943,7 @@ const products = [
     rating: 4.5,
     reviews: 34,
     badge: null,
-    image: 'detector',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlQDftgz2L2RO731WyleC9dtNQUyUOAQRszZ1-7dWT-FJh1QvtSrU6GtxP&s=10',
     specs: 'Kitchen use · Dust resistant · Reliable'
   },
   {
@@ -1927,7 +1955,7 @@ const products = [
     rating: 4.8,
     reviews: 167,
     badge: 'bestseller',
-    image: 'blanket',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzzT2ovUwvzRd-ss29VuxAGpbUx1ImfpDoS_gucx64xb3Ep8Dax2zLt-rI&s=10',
     specs: 'Fiberglass · 550°C rating · Wall pouch included'
   },
   {
@@ -1939,7 +1967,7 @@ const products = [
     rating: 4.7,
     reviews: 52,
     badge: null,
-    image: 'blanket',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzzT2ovUwvzRd-ss29VuxAGpbUx1ImfpDoS_gucx64xb3Ep8Dax2zLt-rI&s=10',
     specs: 'Large area coverage · Heavy duty · Quick release'
   },
   {
@@ -1951,7 +1979,7 @@ const products = [
     rating: 4.6,
     reviews: 78,
     badge: 'sale',
-    image: 'emergency',
+    image: 'https://lightforcecorp.com/cdn/shop/files/EmergencyLightC5033WBLACKNO_2048x.jpg?v=1688706939',
     specs: '3-hour backup · Auto on · Wall mountable'
   },
   {
@@ -1963,7 +1991,7 @@ const products = [
     rating: 4.7,
     reviews: 91,
     badge: 'popular',
-    image: 'emergency',
+    image: 'https://lightforcecorp.com/cdn/shop/files/EmergencyLightC5033WBLACKNO_2048x.jpg?v=1688706939',
     specs: '5-hour backup · Adjustable heads · Charging indicator'
   },
   {
@@ -1975,81 +2003,10 @@ const products = [
     rating: 4.5,
     reviews: 23,
     badge: null,
-    image: 'emergency',
+    image: 'https://5.imimg.com/data5/SS/AW/RR/SELLER-81864289/led-exit-sign-board.jpg',
     specs: 'Illuminated · Fire-rated · Arabic/English'
-  },
-  {
-    id: 14,
-    name: 'First Aid Kit - Basic (25 items)',
-    category: 'firstaid',
-    price: 450,
-    oldPrice: null,
-    rating: 4.6,
-    reviews: 134,
-    badge: 'bestseller',
-    image: 'firstaid',
-    specs: 'Bandages, antiseptic, scissors · Compact case · Home essential'
-  },
-  {
-    id: 15,
-    name: 'First Aid Kit - Professional (50 items)',
-    category: 'firstaid',
-    price: 850,
-    oldPrice: null,
-    rating: 4.8,
-    reviews: 67,
-    badge: null,
-    image: 'firstaid',
-    specs: 'Complete set · Office/warehouse · Refillable'
-  },
-  {
-    id: 16,
-    name: 'Fire Exit Sign - Glow in Dark',
-    category: 'signs',
-    price: 380,
-    oldPrice: null,
-    rating: 4.5,
-    reviews: 45,
-    badge: null,
-    image: 'signs',
-    specs: 'Photoluminescent · No power needed · Long life'
-  },
-  {
-    id: 17,
-    name: 'Fire Extinguisher Sign',
-    category: 'signs',
-    price: 280,
-    oldPrice: null,
-    rating: 4.4,
-    reviews: 28,
-    badge: null,
-    image: 'signs',
-    specs: 'Self-adhesive · Weatherproof · Clear visibility'
-  },
-  {
-    id: 18,
-    name: 'Danger High Voltage Sign',
-    category: 'signs',
-    price: 320,
-    oldPrice: null,
-    rating: 4.6,
-    reviews: 19,
-    badge: null,
-    image: 'signs',
-    specs: 'Industrial safety · Corrosion resistant · Standard size'
-  },
-  {
-    id: 19,
-    name: 'No Smoking Sign',
-    category: 'signs',
-    price: 250,
-    oldPrice: null,
-    rating: 4.5,
-    reviews: 34,
-    badge: null,
-    image: 'signs',
-    specs: 'Clear messaging · Durable · Easy to install'
   }
+
 ];
 
 // ==================== STATE ====================
@@ -2193,10 +2150,7 @@ function renderCartItems() {
   container.innerHTML = cart.items.map(item => `
     <div class="cart-item">
       <div class="cart-item-img">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
-          <rect x="16" y="16" width="16" height="28" rx="2"/>
-          <path d="M20 8 L20 4 L28 4 L28 8"/>
-        </svg>
+        <img src="${item.image}" alt="${item.name}" onerror="this.parentElement.innerHTML='<svg viewBox=\\'0 0 48 48\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1\\'><rect x=\\'16\\' y=\\'16\\' width=\\'16\\' height=\\'28\\' rx=\\'2\\'/><path d=\\'M20 8 L20 4 L28 4 L28 8\\'/></svg>'"/>
       </div>
       <div class="cart-item-details">
         <div class="cart-item-name">${item.name}</div>
@@ -2438,9 +2392,7 @@ function renderProducts(category = 'all') {
     <div class="product-card" onclick="navigateTo('shop'); addToCart(${product.id});">
       <div class="product-img">
         ${product.badge ? `<div class="product-badge ${product.badge === 'sale' ? 'sale' : product.badge === 'new' ? 'new' : ''}">${product.badge}</div>` : ''}
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
-          ${getProductSVG(product.category)}
-        </svg>
+        <img src="${product.image}" alt="${product.name}" onerror="this.parentElement.innerHTML='<svg viewBox=\\'0 0 48 48\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1\\'><rect x=\\'16\\' y=\\'16\\' width=\\'16\\' height=\\'28\\' rx=\\'2\\'/><path d=\\'M16 16 L16 8 L32 8 L32 16\\'/></svg>'"/>
       </div>
       <div class="product-info">
         <div class="product-cat">${getCategoryName(product.category)}</div>
@@ -2574,6 +2526,65 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// ==================== FIRE CANVAS PARTICLE SYSTEM ====================
+const canvas = document.getElementById('fireCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width = canvas.parentElement.offsetWidth;
+  canvas.height = canvas.parentElement.offsetHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class FireParticle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = canvas.height + 20;
+    this.size = Math.random() * 4 + 1;
+    this.speedY = Math.random() * 2 + 0.5;
+    this.speedX = (Math.random() - 0.5) * 0.8;
+    this.life = 1;
+    this.decay = Math.random() * 0.008 + 0.004;
+    this.hue = Math.random() * 30;
+  }
+  update() {
+    this.y -= this.speedY;
+    this.x += this.speedX;
+    this.life -= this.decay;
+    this.size *= 0.998;
+    if (this.life <= 0) this.reset();
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.life * 0.6;
+    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);
+    gradient.addColorStop(0, `hsl(${this.hue}, 100%, 70%)`);
+    gradient.addColorStop(0.5, `hsl(${this.hue + 10}, 100%, 50%)`);
+    gradient.addColorStop(1, 'transparent');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+for (let i = 0; i < 120; i++) {
+  const p = new FireParticle();
+  p.y = Math.random() * canvas.height;
+  particles.push(p);
+}
+
+function animateFire() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateFire);
+}
+animateFire();
 </script>
 </body>
 </html>
