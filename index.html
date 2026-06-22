@@ -145,6 +145,37 @@
     z-index: 1;
   }
 
+  /* SHOP FIRE BACKGROUND */
+  .shop-page-wrapper {
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
+  }
+
+  .shop-fire-bg {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.25;
+    z-index: 0;
+    background: linear-gradient(to top, rgba(255,69,0,0.08) 0%, transparent 40%);
+  }
+
+  #shopFireCanvas {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .shop-section {
+    position: relative;
+    z-index: 1;
+  }
+
   .hero-content { position: relative; z-index: 2; max-width: 600px; }
 
   .hero-eyebrow {
@@ -1431,13 +1462,14 @@
         <a onclick="showInfo('delivery')">Delivery Info</a>
         <a onclick="showInfo('returns')">Returns & Refunds</a>
         <a onclick="showInfo('faq')">FAQ</a>
+        <a onclick="navigateTo('about')">About Us</a>
         <a onclick="navigateTo('contact')">Contact Us</a>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
-        <a>Hotline: +880 1XXX-XXXXXX</a>
-        <a>WhatsApp: +880 1XXX-XXXXXX</a>
-        <a>Email: info@techsoukdhaka.com</a>
+        <a>01919292764</a>
+        <a>01733386767</a>
+        <a>info@techsoukdhaka.com</a>
         <a>Dhaka, Bangladesh</a>
       </div>
     </div>
@@ -1454,24 +1486,28 @@
 
 <!-- SHOP PAGE -->
 <div class="page" id="shopPage">
-  <section class="section">
-    <div class="section-label">Our Products</div>
-    <h2 class="section-title">Fire Safety Shop</h2>
-    <p class="section-sub">Browse our complete range of certified fire safety products for your home.</p>
+  <div class="shop-page-wrapper">
+    <canvas id="shopFireCanvas"></canvas>
+    <div class="shop-fire-bg"></div>
+    <section class="section shop-section">
+      <div class="section-label">Our Products</div>
+      <h2 class="section-title">Fire Safety Shop</h2>
+      <p class="section-sub">Browse our complete range of certified fire safety products for your home.</p>
 
-    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-      <button class="btn-outline" onclick="filterByCategory('all')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">All Products</button>
-      <button class="btn-outline" onclick="filterByCategory('extinguisher')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Extinguishers</button>
-      <button class="btn-outline" onclick="filterByCategory('detector')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Smoke Detectors</button>
-      <button class="btn-outline" onclick="filterByCategory('blanket')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Fire Blankets</button>
-      <button class="btn-outline" onclick="filterByCategory('emergency')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Emergency Lights</button>
-      <button class="btn-outline" onclick="filterByCategory('valve')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Valves & Fittings</button>
-    </div>
+      <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <button class="btn-outline" onclick="filterByCategory('all')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">All Products</button>
+        <button class="btn-outline" onclick="filterByCategory('extinguisher')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Extinguishers</button>
+        <button class="btn-outline" onclick="filterByCategory('detector')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Smoke Detectors</button>
+        <button class="btn-outline" onclick="filterByCategory('blanket')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Fire Blankets</button>
+        <button class="btn-outline" onclick="filterByCategory('emergency')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Emergency Lights</button>
+        <button class="btn-outline" onclick="filterByCategory('valve')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Valves & Fittings</button>
+      </div>
 
-    <div class="products-grid" id="shopProductsGrid">
-      <!-- Products rendered here -->
-    </div>
-  </section>
+      <div class="products-grid" id="shopProductsGrid">
+        <!-- Products rendered here -->
+      </div>
+    </section>
+  </div>
 
   <footer>
     <div class="footer-grid">
@@ -1493,10 +1529,12 @@
         <a onclick="showInfo('delivery')">Delivery Info</a>
         <a onclick="showInfo('returns')">Returns</a>
         <a onclick="showInfo('faq')">FAQ</a>
+        <a onclick="navigateTo('about')">About Us</a>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
-        <a>Hotline: +880 1XXX-XXXXXX</a>
+        <a>01919292764</a>
+        <a>01733386767</a>
         <a>Dhaka, Bangladesh</a>
       </div>
     </div>
@@ -1843,8 +1881,151 @@
   </div>
 </div>
 
+<!-- ABOUT PAGE -->
+<div class="page" id="aboutPage">
+  <section class="section">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">About TechSouk Dhaka</h2>
+    <p class="section-sub">Your trusted partner for fire safety and industrial solutions in Bangladesh.</p>
+
+    <div style="max-width: 800px; background: var(--panel); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border);">
+      <p style="color: var(--smoke); line-height: 1.8; font-size: 1rem; margin-bottom: 1.5rem;">
+        TechSouk Dhaka is a leading importer, stockholder, wholesaler and supplier for HVAC Valves & Fittings, Plumbing Valves & Fittings, Fire Protection Valves & Fittings (UL Listed & FM Approved), Fire Alarm System (UL Listed & FM Approved), Fire Door & Accessories (UL Listed), UL Listed & FM Approved Fire Pump, Domestic Pump, Industrial Water & Chemical Transfer Pump.
+      </p>
+      <p style="color: var(--steel); line-height: 1.8; font-size: 0.95rem; margin-bottom: 2rem;">
+        We are committed to providing high-quality, certified fire safety products that meet international standards including UL (Underwriters Laboratories) and FM (Factory Mutual) approvals. Our products are designed to protect lives and property in residential, commercial, and industrial settings.
+      </p>
+
+      <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--fire); margin-bottom: 1rem;">Our Product Categories</h3>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--smoke); font-size: 0.9rem;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--fire);"></i>
+          <span>Fire Protection Valves & Fittings</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--smoke); font-size: 0.9rem;">
+          <i class="fa-solid fa-bell" style="color: var(--fire);"></i>
+          <span>Fire Alarm Systems</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--smoke); font-size: 0.9rem;">
+          <i class="fa-solid fa-door-closed" style="color: var(--fire);"></i>
+          <span>Fire Doors & Accessories</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--smoke); font-size: 0.9rem;">
+          <i class="fa-solid fa-water" style="color: var(--fire);"></i>
+          <span>Fire Pumps</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--smoke); font-size: 0.9rem;">
+          <i class="fa-solid fa-fan" style="color: var(--fire);"></i>
+          <span>HVAC Valves & Fittings</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--smoke); font-size: 0.9rem;">
+          <i class="fa-solid fa-wrench" style="color: var(--fire);"></i>
+          <span>Plumbing Valves & Fittings</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--smoke); font-size: 0.9rem;">
+          <i class="fa-solid fa-house-flood-water" style="color: var(--fire);"></i>
+          <span>Domestic Pumps</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--smoke); font-size: 0.9rem;">
+          <i class="fa-solid fa-industry" style="color: var(--fire);"></i>
+          <span>Industrial Pumps</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <span style="background: rgba(255,69,0,0.15); color: var(--fire); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">UL Listed</span>
+        <span style="background: rgba(255,69,0,0.15); color: var(--fire); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">FM Approved</span>
+        <span style="background: rgba(255,69,0,0.15); color: var(--fire); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">BNBC Compliant</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; text-align: center;">
+      <button class="btn-primary" onclick="navigateTo('contact')">
+        <i class="fa-solid fa-envelope"></i>
+        Contact Us
+      </button>
+      <button class="btn-outline" onclick="navigateTo('shop')" style="margin-left: 1rem;">
+        <i class="fa-solid fa-shopping-bag"></i>
+        Browse Products
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="contactPage">
+  <section class="section">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-sub">Have questions? We're here to help. Reach out to us through any of these channels.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 900px;">
+      <!-- Address -->
+      <div style="background: var(--panel); padding: 2rem; border-radius: 8px; border: 1px solid var(--border);">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="width: 45px; height: 45px; background: rgba(255,69,0,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fa-solid fa-location-dot" style="color: var(--fire); font-size: 1.2rem;"></i>
+          </div>
+          <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600;">Our Address</h3>
+        </div>
+        <p style="color: var(--steel); line-height: 1.7; font-size: 0.95rem;">
+          154, Mazed Sarder Tower, 1st Floor,<br>
+          Osman Gani Road (Alubazar),<br>
+          Nababpur, Dhaka
+        </p>
+      </div>
+
+      <!-- Phone -->
+      <div style="background: var(--panel); padding: 2rem; border-radius: 8px; border: 1px solid var(--border);">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="width: 45px; height: 45px; background: rgba(255,69,0,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fa-solid fa-phone" style="color: var(--fire); font-size: 1.2rem;"></i>
+          </div>
+          <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600;">Call Us</h3>
+        </div>
+        <div style="color: var(--steel); line-height: 1.7;">
+          <a href="tel:01919292764" style="color: var(--smoke); text-decoration: none; display: block; margin-bottom: 0.5rem; font-size: 0.95rem;">
+            <i class="fa-solid fa-phone-flip" style="color: var(--fire); margin-right: 0.5rem; font-size: 0.85rem;"></i>
+            01919292764
+          </a>
+          <a href="tel:01733386767" style="color: var(--smoke); text-decoration: none; display: block; font-size: 0.95rem;">
+            <i class="fa-solid fa-phone-flip" style="color: var(--fire); margin-right: 0.5rem; font-size: 0.85rem;"></i>
+            01733386767
+          </a>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div style="background: var(--panel); padding: 2rem; border-radius: 8px; border: 1px solid var(--border);">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="width: 45px; height: 45px; background: rgba(255,69,0,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fa-solid fa-envelope" style="color: var(--fire); font-size: 1.2rem;"></i>
+          </div>
+          <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600;">Email Us</h3>
+        </div>
+        <p style="color: var(--steel); line-height: 1.7; font-size: 0.95rem;">
+          <a href="mailto:info@techsoukdhaka.com" style="color: var(--smoke); text-decoration: none;">
+            <i class="fa-solid fa-paper-plane" style="color: var(--fire); margin-right: 0.5rem; font-size: 0.85rem;"></i>
+            info@techsoukdhaka.com
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: rgba(255,69,0,0.08); border-radius: 8px; border: 1px solid rgba(255,69,0,0.2);">
+      <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 600; color: var(--smoke); margin-bottom: 1rem;">Quick Connect</h3>
+      <p style="color: var(--steel); font-size: 0.9rem; margin-bottom: 1.5rem;">Get instant support through WhatsApp</p>
+      <a href="https://wa.me/8801919292764" target="_blank" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        <i class="fa-brands fa-whatsapp"></i>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </section>
+</div>
+
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/8801XXXXXXXXX" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/8801919292764" class="whatsapp-float" target="_blank">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
@@ -2636,6 +2817,82 @@ function animateFire() {
   requestAnimationFrame(animateFire);
 }
 animateFire();
+
+// ==================== SHOP FIRE ANIMATION ====================
+const shopCanvas = document.getElementById('shopFireCanvas');
+if (shopCanvas) {
+  const shopCtx = shopCanvas.getContext('2d');
+  let shopParticles = [];
+
+  function resizeShopCanvas() {
+    const parent = shopCanvas.parentElement;
+    shopCanvas.width = parent.offsetWidth || window.innerWidth;
+    shopCanvas.height = Math.max(parent.offsetHeight || 600, 600);
+  }
+  resizeShopCanvas();
+  window.addEventListener('resize', resizeShopCanvas);
+
+  // Also resize when shop page becomes active
+  const originalNavigateTo = window.navigateTo;
+  window.navigateTo = function(page) {
+    originalNavigateTo(page);
+    if (page === 'shop') {
+      setTimeout(resizeShopCanvas, 100);
+    }
+  };
+
+  class ShopFireParticle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * shopCanvas.width;
+      this.y = shopCanvas.height + 20;
+      this.size = Math.random() * 3 + 0.5;
+      this.speedY = Math.random() * 1.5 + 0.3;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.life = 1;
+      this.decay = Math.random() * 0.006 + 0.003;
+      this.hue = Math.random() * 25 + 5; // Orange-red tones
+    }
+    update() {
+      this.y -= this.speedY;
+      this.x += this.speedX;
+      this.life -= this.decay;
+      this.size *= 0.997;
+      if (this.life <= 0) this.reset();
+    }
+    draw() {
+      shopCtx.save();
+      shopCtx.globalAlpha = this.life * 0.4;
+      const gradient = shopCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);
+      gradient.addColorStop(0, `hsl(${this.hue}, 100%, 65%)`);
+      gradient.addColorStop(0.4, `hsl(${this.hue + 8}, 100%, 45%)`);
+      gradient.addColorStop(1, 'transparent');
+      shopCtx.fillStyle = gradient;
+      shopCtx.beginPath();
+      shopCtx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+      shopCtx.fill();
+      shopCtx.restore();
+    }
+  }
+
+  // Create fewer particles for shop page (more subtle)
+  function initShopParticles() {
+    shopParticles = [];
+    for (let i = 0; i < 60; i++) {
+      const p = new ShopFireParticle();
+      p.y = Math.random() * shopCanvas.height;
+      shopParticles.push(p);
+    }
+  }
+  initShopParticles();
+
+  function animateShopFire() {
+    shopCtx.clearRect(0, 0, shopCanvas.width, shopCanvas.height);
+    shopParticles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animateShopFire);
+  }
+  animateShopFire();
+}
 </script>
 </body>
 </html>
