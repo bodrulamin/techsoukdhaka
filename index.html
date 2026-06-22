@@ -1465,6 +1465,7 @@
       <button class="btn-outline" onclick="filterByCategory('detector')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Smoke Detectors</button>
       <button class="btn-outline" onclick="filterByCategory('blanket')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Fire Blankets</button>
       <button class="btn-outline" onclick="filterByCategory('emergency')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Emergency Lights</button>
+      <button class="btn-outline" onclick="filterByCategory('valve')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Valves & Fittings</button>
     </div>
 
     <div class="products-grid" id="shopProductsGrid">
@@ -1485,6 +1486,7 @@
         <a onclick="navigateTo('shop')">All Products</a>
         <a onclick="filterByCategory('extinguisher')">Fire Extinguishers</a>
         <a onclick="filterByCategory('detector')">Smoke Detectors</a>
+        <a onclick="filterByCategory('valve')">Valves & Fittings</a>
       </div>
       <div class="footer-col">
         <h5>Help</h5>
@@ -1850,6 +1852,55 @@
 <script>
 // ==================== PRODUCTS DATA ====================
 const products = [
+
+  {
+    id: 14,
+    name: 'Gate Valve',
+    category: 'valve',
+    price: 1200,
+    oldPrice: null,
+    rating: 4.6,
+    reviews: 18,
+    badge: null,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCMrgi40tkCUTXApDgNaej3ivmuktzXG1VkyhWoZ6neq_Ljqzz28YPHfkD&s=10',
+    specs: 'Brass construction · Full bore design · Threaded ends'
+  },
+  {
+    id: 15,
+    name: 'Y Strainer - Stainless Steel',
+    category: 'valve',
+    price: 1800,
+    oldPrice: null,
+    rating: 4.7,
+    reviews: 25,
+    badge: 'new',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbuXkKKVY_2E8jrfodegaxMg3CohUmC0DjQSjh3Hek-5mGMSJZOHiDPsw&s=10',
+    specs: '304 SS · Mesh filter · Easy cleaning'
+  },
+  {
+    id: 16,
+    name: 'Butterfly Valve',
+    category: 'valve',
+    price: 2500,
+    oldPrice: null,
+    rating: 4.8,
+    reviews: 32,
+    badge: 'popular',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUX4n8jp6N-AYyvvqoJwlobkcyPPFmemsc3T8RiqQ78w&s=10',
+    specs: 'Cast iron body · EPDM seat · 150lb rating'
+  },
+  {
+    id: 17,
+    name: 'Check Valve',
+    category: 'valve',
+    price: 1600,
+    oldPrice: null,
+    rating: 4.5,
+    reviews: 15,
+    badge: null,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiLqsvysJXLMEgS3ZRNa0q9QUau1oPheSst-PnKhWfNIQPvc0dAcxSEd8&s=10',
+    specs: 'Prevents backflow · Brass body · Spring loaded'
+  },
   {
     id: 1,
     name: 'ABC Dry Powder Fire Extinguisher - 1kg',
@@ -1919,7 +1970,7 @@ const products = [
     rating: 4.9,
     reviews: 203,
     badge: 'bestseller',
-    image: 'hhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT14eI29LOWNplOUEXRQVXk4rZGapzlZMF0dnR2pVimnQ&s=10',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA3ZB-qx5EWqis3rw0AhVSn67GRlShsm6uQ5TUaWrzfg&s=10',
     specs: 'Early detection · Low battery alert · Easy install'
   },
   {
