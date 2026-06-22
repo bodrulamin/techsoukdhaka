@@ -146,34 +146,41 @@
   }
 
   /* SHOP FIRE BACKGROUND */
-  .shop-page-wrapper {
+  .shop-section {
     position: relative;
-    min-height: 600px;
-    overflow: hidden;
   }
 
   .shop-fire-bg {
     position: absolute;
-    bottom: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
     pointer-events: none;
-    opacity: 0.25;
     z-index: 0;
     background: linear-gradient(to top, rgba(255,69,0,0.08) 0%, transparent 40%);
+    overflow: hidden;
   }
 
   #shopFireCanvas {
     position: absolute;
-    bottom: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
-    opacity: 0.4;
-    z-index: 0;
+    opacity: 0.5;
   }
 
-  .shop-section {
+  .shop-section > *:not(.shop-fire-bg) {
     position: relative;
     z-index: 1;
+  }
+
+  .products-grid {
+    position: relative;
+    z-index: 1;
+  }
+
+  .product-card {
+    position: relative;
+    z-index: 2;
   }
 
   .hero-content { position: relative; z-index: 2; max-width: 600px; }
@@ -1486,28 +1493,28 @@
 
 <!-- SHOP PAGE -->
 <div class="page" id="shopPage">
-  <div class="shop-page-wrapper">
-    <canvas id="shopFireCanvas"></canvas>
-    <div class="shop-fire-bg"></div>
-    <section class="section shop-section">
-      <div class="section-label">Our Products</div>
-      <h2 class="section-title">Fire Safety Shop</h2>
-      <p class="section-sub">Browse our complete range of certified fire safety products for your home.</p>
+  <section class="section shop-section">
+    <div class="shop-fire-bg">
+      <canvas id="shopFireCanvas"></canvas>
+    </div>
 
-      <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-        <button class="btn-outline" onclick="filterByCategory('all')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">All Products</button>
-        <button class="btn-outline" onclick="filterByCategory('extinguisher')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Extinguishers</button>
-        <button class="btn-outline" onclick="filterByCategory('detector')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Smoke Detectors</button>
-        <button class="btn-outline" onclick="filterByCategory('blanket')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Fire Blankets</button>
-        <button class="btn-outline" onclick="filterByCategory('emergency')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Emergency Lights</button>
-        <button class="btn-outline" onclick="filterByCategory('valve')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Valves & Fittings</button>
-      </div>
+    <div class="section-label">Our Products</div>
+    <h2 class="section-title">Fire Safety Shop</h2>
+    <p class="section-sub">Browse our complete range of certified fire safety products for your home.</p>
 
-      <div class="products-grid" id="shopProductsGrid">
-        <!-- Products rendered here -->
-      </div>
-    </section>
-  </div>
+    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+      <button class="btn-outline" onclick="filterByCategory('all')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">All Products</button>
+      <button class="btn-outline" onclick="filterByCategory('extinguisher')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Extinguishers</button>
+      <button class="btn-outline" onclick="filterByCategory('detector')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Smoke Detectors</button>
+      <button class="btn-outline" onclick="filterByCategory('blanket')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Fire Blankets</button>
+      <button class="btn-outline" onclick="filterByCategory('emergency')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Emergency Lights</button>
+      <button class="btn-outline" onclick="filterByCategory('valve')" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Valves & Fittings</button>
+    </div>
+
+    <div class="products-grid" id="shopProductsGrid">
+      <!-- Products rendered here -->
+    </div>
+  </section>
 
   <footer>
     <div class="footer-grid">
@@ -2825,9 +2832,10 @@ if (shopCanvas) {
   let shopParticles = [];
 
   function resizeShopCanvas() {
+    // Canvas is inside shop-fire-bg, so use parent dimensions
     const parent = shopCanvas.parentElement;
-    shopCanvas.width = parent.offsetWidth || window.innerWidth;
-    shopCanvas.height = Math.max(parent.offsetHeight || 600, 600);
+    shopCanvas.width = parent.offsetWidth;
+    shopCanvas.height = parent.offsetHeight;
   }
   resizeShopCanvas();
   window.addEventListener('resize', resizeShopCanvas);
@@ -2842,30 +2850,36 @@ if (shopCanvas) {
   };
 
   class ShopFireParticle {
-    constructor() { this.reset(); }
-    reset() {
+    constructor(initialY = null) {
+      this.reset(initialY);
+    }
+    reset(initialY = null) {
       this.x = Math.random() * shopCanvas.width;
-      this.y = shopCanvas.height + 20;
-      this.size = Math.random() * 3 + 0.5;
-      this.speedY = Math.random() * 1.5 + 0.3;
-      this.speedX = (Math.random() - 0.5) * 0.5;
+      // If initialY is provided, start there (for initial spread), otherwise start at bottom
+      this.y = initialY !== null ? initialY : shopCanvas.height + 100;
+      this.size = Math.random() * 6 + 2; // Larger particles
+      this.speedY = Math.random() * 3 + 2; // Much faster speed
+      this.speedX = (Math.random() - 0.5) * 1.2; // More horizontal movement
       this.life = 1;
-      this.decay = Math.random() * 0.006 + 0.003;
-      this.hue = Math.random() * 25 + 5; // Orange-red tones
+      this.decay = Math.random() * 0.002 + 0.0005; // Very slow decay for very long lifespan
+      this.hue = Math.random() * 30 + 5; // Wider color range
     }
     update() {
       this.y -= this.speedY;
       this.x += this.speedX;
       this.life -= this.decay;
-      this.size *= 0.997;
-      if (this.life <= 0) this.reset();
+      this.size *= 0.999; // Very slow size reduction
+      // Reset if particle dies or goes off top
+      if (this.life <= 0 || this.y < -100) {
+        this.reset();
+      }
     }
     draw() {
       shopCtx.save();
-      shopCtx.globalAlpha = this.life * 0.4;
+      shopCtx.globalAlpha = this.life * 0.8; // Higher opacity
       const gradient = shopCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);
-      gradient.addColorStop(0, `hsl(${this.hue}, 100%, 65%)`);
-      gradient.addColorStop(0.4, `hsl(${this.hue + 8}, 100%, 45%)`);
+      gradient.addColorStop(0, `hsl(${this.hue}, 100%, 70%)`);
+      gradient.addColorStop(0.3, `hsl(${this.hue + 10}, 100%, 50%)`);
       gradient.addColorStop(1, 'transparent');
       shopCtx.fillStyle = gradient;
       shopCtx.beginPath();
@@ -2875,12 +2889,14 @@ if (shopCanvas) {
     }
   }
 
-  // Create fewer particles for shop page (more subtle)
+  // Create particles for shop page - spread throughout height initially
   function initShopParticles() {
     shopParticles = [];
-    for (let i = 0; i < 60; i++) {
-      const p = new ShopFireParticle();
-      p.y = Math.random() * shopCanvas.height;
+    const particleCount = 200; // Many more particles
+    for (let i = 0; i < particleCount; i++) {
+      // Distribute particles throughout the canvas height initially
+      const initialY = Math.random() * shopCanvas.height;
+      const p = new ShopFireParticle(initialY);
       shopParticles.push(p);
     }
   }
