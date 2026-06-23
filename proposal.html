@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>E-Commerce Proposal — TechSouk Dhaka</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --fire: #FF4500;
+    --ember: #C0392B;
+    --charcoal: #0D0D0D;
+    --steel: #8A9BA8;
+    --smoke: #F0EDE8;
+    --panel: #161616;
+    --border: #2a2a2a;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --gold: #FFD700;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--charcoal);
+    color: var(--smoke);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  /* FIRE BACKGROUND */
+  .fire-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse at 70% 70%, rgba(255,69,0,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 40%, rgba(192,57,43,0.05) 0%, transparent 40%);
+  }
+
+  #fireCanvas {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.25;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    z-index: 10;
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 3rem;
+  }
+
+  .header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .logo span { color: var(--fire); }
+
+  .header-meta {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.85rem;
+    color: var(--steel);
+  }
+
+  .header-meta div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header-meta i { color: var(--fire); }
+
+  /* MAIN CONTENT */
+  main {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  /* SECTIONS */
+  .section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    color: var(--fire);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--smoke);
+  }
+
+  .section-title .accent { color: var(--fire); }
+
+  /* HERO SECTION */
+  .hero {
+    text-align: center;
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, var(--panel) 0%, #1a1a1a 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--fire), transparent);
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,69,0,0.1);
+    border: 1px solid var(--fire);
+    color: var(--fire);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 .fire { color: var(--fire); }
+
+  .hero p {
+    color: var(--steel);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .proposal-meta {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .meta-item {
+    text-align: center;
+  }
+
+  .meta-label {
+    font-size: 0.7rem;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .meta-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--smoke);
+    margin-top: 0.25rem;
+  }
+
+  /* FEATURE GRID */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .feature-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(255,69,0,0.3);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255,69,0,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fire);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-desc {
+    font-size: 0.85rem;
+    color: var(--steel);
+    line-height: 1.6;
+  }
+
+  /* MODULE LIST */
+  .module-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .module-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .module-item:hover {
+    border-color: rgba(255,69,0,0.3);
+  }
+
+  .module-check {
+    width: 24px;
+    height: 24px;
+    background: rgba(255,69,0,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fire);
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .module-content {
+    flex: 1;
+  }
+
+  .module-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .module-desc {
+    font-size: 0.85rem;
+    color: var(--steel);
+  }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .pricing-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-card.featured {
+    border-color: var(--fire);
+    box-shadow: 0 0 30px rgba(255,69,0,0.15);
+  }
+
+  .pricing-card.featured::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--fire);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 1rem;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .pricing-tier {
+    font-size: 0.8rem;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .pricing-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-price {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--fire);
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-price span {
+    font-size: 1rem;
+    color: var(--steel);
+    font-weight: 400;
+  }
+
+  .pricing-features {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .pricing-features div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-features i {
+    color: var(--fire);
+    font-size: 0.75rem;
+  }
+
+  .pricing-cta {
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--border);
+    border: none;
+    color: var(--smoke);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .pricing-cta:hover {
+    background: var(--fire);
+  }
+
+  .pricing-card.featured .pricing-cta {
+    background: var(--fire);
+  }
+
+  /* TECH STACK */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .tech-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,69,0,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .tech-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.25rem;
+    width: 12px;
+    height: 12px;
+    background: var(--fire);
+    border-radius: 50%;
+    border: 3px solid var(--charcoal);
+  }
+
+  .timeline-phase {
+    font-size: 0.7rem;
+    color: var(--fire);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .timeline-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0.5rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.9rem;
+    color: var(--steel);
+    line-height: 1.6;
+  }
+
+  .timeline-duration {
+    font-size: 0.8rem;
+    color: #444;
+    margin-top: 0.5rem;
+  }
+
+  /* TABLE */
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comparison-table th {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(255,69,0,0.1);
+  }
+
+  .comparison-table td {
+    font-size: 0.9rem;
+  }
+
+  .comparison-table .check { color: var(--success); }
+  .comparison-table .cross { color: var(--ember); }
+
+  /* CTA SECTION */
+  .cta-section {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(255,69,0,0.1) 0%, rgba(192,57,43,0.05) 100%);
+    border: 1px solid rgba(255,69,0,0.3);
+    border-radius: 12px;
+    margin-top: 3rem;
+  }
+
+  .cta-section h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--steel);
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--fire);
+    color: white;
+    padding: 1rem 2.5rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background: var(--ember);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255,69,0,0.4);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--smoke);
+    padding: 1rem 2.5rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--fire);
+    color: var(--fire);
+  }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 10;
+    background: #080808;
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #444;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .feature-grid,
+    .pricing-grid,
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    header {
+      padding: 1rem 2rem;
+    }
+    main {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .feature-grid,
+    .pricing-grid,
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero {
+      padding: 2rem 1.5rem;
+    }
+    .proposal-meta {
+      gap: 1.5rem;
+    }
+    .header-meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- FIRE BACKGROUND -->
+<div class="fire-bg"></div>
+<canvas id="fireCanvas"></canvas>
+
+<!-- HEADER -->
+<header>
+  <div class="header-content">
+    <div class="logo">TECH<span>SOUK</span> DHAKA</div>
+    <div class="header-meta">
+      <div><i class="fa-regular fa-calendar"></i> June 2025</div>
+      <div><i class="fa-regular fa-building"></i> Revolop Technologies</div>
+      <div><i class="fa-solid fa-fire-flame-curved"></i> Fire & Safety Solutions</div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">
+    <i class="fa-solid fa-fire"></i>
+    Comprehensive E-Commerce Solution
+  </div>
+  <h1>
+    TechSouk Dhaka
+    <br><span class="fire">E-Commerce Platform</span>
+  </h1>
+  <p>
+    A complete custom e-commerce solution tailored specifically for fire safety and industrial products.
+    Built on enterprise-grade technology with comprehensive features for managing products, orders, deliveries, and customers.
+  </p>
+  <div class="proposal-meta">
+    <div class="meta-item">
+      <div class="meta-label">Prepared For</div>
+      <div class="meta-value">TechSouk Dhaka</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Software Provider</div>
+      <div class="meta-value">Revolop Technologies</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Implementation</div>
+      <div class="meta-value">3-4 Months</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Technology</div>
+      <div class="meta-value">Angular + Spring Boot</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <div class="section-label">Overview</div>
+  <h2 class="section-title">Executive <span class="accent">Summary</span></h2>
+  <p style="color: var(--steel); line-height: 1.8; max-width: 800px;">
+    TechSouk Dhaka specializes in fire safety products, HVAC systems, plumbing valves, and industrial pumps. This proposal outlines a comprehensive custom e-commerce platform designed specifically for your business needs.
+  </p>
+  <p style="color: var(--steel); line-height: 1.8; max-width: 800px; margin-top: 1rem;">
+    The platform includes three main components: a powerful Admin Panel for business management, a Customer Web Application for online shopping, and a robust Backend API built with enterprise-grade Java Spring Boot.
+  </p>
+
+  <div class="feature-grid" style="margin-top: 2rem;">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="feature-title">Industry-Specific</div>
+      <div class="feature-desc">Tailored for fire safety, HVAC, and industrial products with specialized categories and attributes.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-gauge-high"></i></div>
+      <div class="feature-title">Scalable Architecture</div>
+      <div class="feature-desc">Built on proven technology stack that handles thousands of products and orders efficiently.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+      <div class="feature-title">Multi-Platform</div>
+      <div class="feature-desc">Web-based customer interface with optional mobile app support for iOS and Android.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SYSTEM ARCHITECTURE -->
+<div class="section">
+  <div class="section-label">Architecture</div>
+  <h2 class="section-title">System <span class="accent">Architecture</span></h2>
+  <p style="color: var(--steel); max-width: 700px;">A complete three-tier e-commerce ecosystem designed for scalability and ease of management.</p>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-gauge"></i></div>
+      <div class="feature-title">Admin Panel (Angular)</div>
+      <div class="feature-desc">Comprehensive dashboard for managing products, orders, customers, deliveries, coupons, wallets, and all business operations.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-store"></i></div>
+      <div class="feature-title">Customer Web (Angular)</div>
+      <div class="feature-desc">User-friendly shopping interface with product browsing, cart, checkout, payment, order tracking, and wallet management.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-server"></i></div>
+      <div class="feature-title">Backend API (Spring Boot)</div>
+      <div class="feature-desc">RESTful API with comprehensive security, payment integration, notification system, and database management.</div>
+    </div>
+  </div>
+
+  <div class="tech-grid">
+    <div class="tech-item">
+      <div class="tech-icon"><i class="fa-brands fa-angular"></i></div>
+      <div class="tech-name">Angular 17+</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon"><i class="fa-brands fa-java"></i></div>
+      <div class="tech-name">Spring Boot</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon"><i class="fa-solid fa-database"></i></div>
+      <div class="tech-name">MySQL/PostgreSQL</div>
+    </div>
+    <div class="tech-item">
+      <div class="tech-icon"><i class="fa-brands fa-docker"></i></div>
+      <div class="tech-name">Docker Ready</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPREHENSIVE FEATURES -->
+<div class="section">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title">Comprehensive <span class="accent">Features</span></h2>
+
+  <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--fire);">
+    <i class="fa-solid fa-gauge" style="margin-right: 0.5rem;"></i>
+    Admin Panel Features
+  </h3>
+
+  <div class="module-list">
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Product Management</div>
+        <div class="module-desc">Full CRUD for products with variations, images, stock management, pricing, and categories. Support for fire extinguishers, valves, pumps, and all your product lines.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Category & Navigation</div>
+        <div class="module-desc">Hierarchical category structure for Fire Protection, HVAC, Plumbing, Pumps, and Accessories. Custom menu routing for easy navigation.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Order Management</div>
+        <div class="module-desc">Complete order lifecycle from placement to delivery. Order status tracking, charge calculations, and return processing.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Customer Management</div>
+        <div class="module-desc">Customer profiles, addresses, order history, wallet balances, and communication logs.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Delivery Management</div>
+        <div class="module-desc">Delivery man assignment, tracking, and commission management. Real-time delivery status updates.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">City & Area Management</div>
+        <div class="module-desc">Geographic coverage configuration for Dhaka and beyond. Area-based delivery charges and service zones.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Outlet/Store Management</div>
+        <div class="module-desc">Multi-location inventory management. Store-wise product allocation and user permissions.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Coupon System</div>
+        <div class="module-desc">Create promotional coupons with minimum purchase requirements, usage limits, and validity periods.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Wallet System</div>
+        <div class="module-desc">Customer wallet management with add money, cashback, and coin-based rewards. Configurable earn and redeem thresholds.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Advertisement & Carousel</div>
+        <div class="module-desc">Homepage banner management for promotions and featured products. Advertisement placement and tracking.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Chat & Support</div>
+        <div class="module-desc">Real-time customer support chat system. Conversation history and message management.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Target & Challenges</div>
+        <div class="module-desc">Sales targets and challenges for delivery team with subscription tracking and performance metrics.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">App Configuration</div>
+        <div class="module-desc">Centralized settings for delivery charges, payment gateways, business rules, and system parameters.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Permission Management</div>
+        <div class="module-desc">Role-based access control for admin users. Outlet-wise permissions and user management.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Stock Management</div>
+        <div class="module-desc">Inventory tracking with product variations. Low stock alerts and stock transfer between outlets.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--fire);">
+    <i class="fa-solid fa-store" style="margin-right: 0.5rem;"></i>
+    Customer Web Features
+  </h3>
+
+  <div class="module-list">
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Product Browsing</div>
+        <div class="module-desc">Category-wise product exploration with advanced filters, search, and sorting options.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Product Details</div>
+        <div class="module-desc">Detailed product pages with images, specifications, variants, stock status, and reviews.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Shopping Cart</div>
+        <div class="module-desc">Persistent cart with quantity management, stock validation, and coupon application.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Checkout Process</div>
+        <div class="module-desc">Streamlined checkout with address selection, delivery time slot, payment method, and order confirmation.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Payment Integration</div>
+        <div class="module-desc">Multiple payment options including Cash on Delivery, bKash, Nagad, and card payments via SSLCommerz.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Order Tracking</div>
+        <div class="module-desc">Real-time order status updates from processing to delivery. Order history with detailed views.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Customer Account</div>
+        <div class="module-desc">Profile management, saved addresses, wallet access, and order preferences.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Wallet & Rewards</div>
+        <div class="module-desc">Digital wallet for payments, coin earning on purchases, and reward redemption at checkout.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Live Chat Support</div>
+        <div class="module-desc">WhatsApp-style chat for instant customer support and product inquiries.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Referral System</div>
+        <div class="module-desc">Customer referral program with rewards for bringing new users to the platform.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECH STACK DETAILS -->
+<div class="section">
+  <div class="section-label">Technology</div>
+  <h2 class="section-title">Technology <span class="accent">Stack</span></h2>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Technology</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Frontend Admin</td>
+        <td>Angular 17+ / TypeScript</td>
+        <td>Responsive admin dashboard with real-time updates</td>
+      </tr>
+      <tr>
+        <td>Frontend Customer</td>
+        <td>Angular 17+ / Tailwind CSS</td>
+        <td>Modern shopping experience with mobile-first design</td>
+      </tr>
+      <tr>
+        <td>Backend API</td>
+        <td>Spring Boot / Java 17+</td>
+        <td>RESTful services with enterprise security</td>
+      </tr>
+      <tr>
+        <td>Database</td>
+        <td>MySQL / PostgreSQL</td>
+        <td>Relational data storage with ACID compliance</td>
+      </tr>
+      <tr>
+        <td>Authentication</td>
+        <td>Spring Security / JWT</td>
+        <td>Secure token-based authentication</td>
+      </tr>
+      <tr>
+        <td>Payment Gateway</td>
+        <td>SSLCommerz / bKash API</td>
+        <td>Integrated payment processing</td>
+      </tr>
+      <tr>
+        <td>Deployment</td>
+        <td>Docker / AWS / DigitalOcean</td>
+        <td>Containerized deployment for scalability</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- IMPLEMENTATION TIMELINE -->
+<div class="section">
+  <div class="section-label">Schedule</div>
+  <h2 class="section-title">Implementation <span class="accent">Timeline</span></h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 1 — Foundation</div>
+      <div class="timeline-title">Setup & Configuration</div>
+      <div class="timeline-desc">
+        Server setup, database configuration, base project setup, and environment configuration.
+        Brand customization with TechSouk Dhaka identity and fire safety theme.
+      </div>
+      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 3-4 Weeks</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 2 — Core Development</div>
+      <div class="timeline-title">Product & Order Management</div>
+      <div class="timeline-desc">
+        Product management with fire safety categories, order processing workflow,
+        customer registration, and authentication system.
+      </div>
+      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 5-6 Weeks</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 3 — Advanced Features</div>
+      <div class="timeline-title">Payment, Delivery & Wallet</div>
+      <div class="timeline-desc">
+        Payment gateway integration (SSLCommerz, bKash), delivery management system,
+        wallet functionality, and notification system.
+      </div>
+      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 4-5 Weeks</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 4 — Testing & Launch</div>
+      <div class="timeline-title">Quality Assurance & Deployment</div>
+      <div class="timeline-desc">
+        End-to-end testing, bug fixes, performance optimization,
+        data migration from existing systems, and production deployment.
+      </div>
+      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 3-4 Weeks</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,69,0,0.08); border: 1px solid rgba(255,69,0,0.2); border-radius: 8px;">
+    <div style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">
+      <i class="fa-solid fa-calendar-check" style="color: var(--fire); margin-right: 0.5rem;"></i>
+      Total Estimated Timeline: 15-19 Weeks (3.5-4.5 Months)
+    </div>
+    <p style="color: var(--steel); font-size: 0.9rem;">Timeline may vary based on customization requirements and data migration complexity.</p>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="section">
+  <div class="section-label">Investment</div>
+  <h2 class="section-title">Pricing <span class="accent">Options</span></h2>
+
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tier">Essential</div>
+      <div class="pricing-name">Basic Package</div>
+      <div class="pricing-price"><span>৳</span> 350,000</div>
+      <div class="pricing-features">
+        <div><i class="fa-solid fa-check"></i> Core Admin Panel</div>
+        <div><i class="fa-solid fa-check"></i> Customer Web Store</div>
+        <div><i class="fa-solid fa-check"></i> Product Management</div>
+        <div><i class="fa-solid fa-check"></i> Order Processing</div>
+        <div><i class="fa-solid fa-check"></i> Basic Reports</div>
+        <div><i class="fa-solid fa-check"></i> COD Payment</div>
+        <div style="color: var(--steel);"><i class="fa-solid fa-times" style="color: var(--steel);"></i> Wallet System</div>
+        <div style="color: var(--steel);"><i class="fa-solid fa-times" style="color: var(--steel);"></i> Mobile App</div>
+      </div>
+      <button class="pricing-cta">Select Basic</button>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-tier">Recommended</div>
+      <div class="pricing-name">Professional Package</div>
+      <div class="pricing-price"><span>৳</span> 550,000</div>
+      <div class="pricing-features">
+        <div><i class="fa-solid fa-check"></i> Everything in Basic</div>
+        <div><i class="fa-solid fa-check"></i> Wallet & Rewards</div>
+        <div><i class="fa-solid fa-check"></i> Payment Gateway Integration</div>
+        <div><i class="fa-solid fa-check"></i> Delivery Management</div>
+        <div><i class="fa-solid fa-check"></i> Coupon System</div>
+        <div><i class="fa-solid fa-check"></i> Advanced Analytics</div>
+        <div><i class="fa-solid fa-check"></i> Chat Support System</div>
+        <div style="color: var(--steel);"><i class="fa-solid fa-times" style="color: var(--steel);"></i> Mobile App</div>
+      </div>
+      <button class="pricing-cta">Select Professional</button>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-tier">Enterprise</div>
+      <div class="pricing-name">Complete Solution</div>
+      <div class="pricing-price"><span>৳</span> 850,000</div>
+      <div class="pricing-features">
+        <div><i class="fa-solid fa-check"></i> Everything in Professional</div>
+        <div><i class="fa-solid fa-check"></i> Customer Mobile App (Android)</div>
+        <div><i class="fa-solid fa-check"></i> Multi-Outlet Management</div>
+        <div><i class="fa-solid fa-check"></i> Target & Challenge System</div>
+        <div><i class="fa-solid fa-check"></i> Advanced Customization</div>
+        <div><i class="fa-solid fa-check"></i> Priority Support</div>
+        <div><i class="fa-solid fa-check"></i> 1 Year Free Maintenance</div>
+        <div><i class="fa-solid fa-check"></i> Training Documentation</div>
+      </div>
+      <button class="pricing-cta">Select Enterprise</button>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--steel); font-size: 0.85rem; margin-top: 1.5rem;">
+    * All packages include source code, deployment assistance, and 6 months of technical support.
+    <br>Server costs, payment gateway fees, and SMS charges are separate.
+  </p>
+</div>
+
+<!-- MAINTENANCE -->
+<div class="section">
+  <div class="section-label">Support</div>
+  <h2 class="section-title">Maintenance & <span class="accent">Support</span></h2>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
+      <div class="feature-title">Launch Support</div>
+      <div class="feature-desc">6 months of technical support included with all packages. Bug fixes and minor adjustments at no extra cost.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+      <div class="feature-title">Annual Maintenance</div>
+      <div class="feature-desc">Optional annual maintenance contract at 15% of project value for ongoing updates, security patches, and feature additions.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="feature-title">Training</div>
+      <div class="feature-desc">Admin and staff training sessions included. User manuals and documentation provided for self-learning.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h3>Ready to Transform Your E-Commerce Presence?</h3>
+  <p>Let's discuss how a custom e-commerce platform can power TechSouk Dhaka's online growth with a solution tailored to your needs.</p>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
+    <a href="tel:01919292764" class="btn-primary">
+      <i class="fa-solid fa-phone"></i> Call 01919292764
+    </a>
+    <a href="https://wa.me/8801919292764" class="btn-secondary" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+    </a>
+  </div>
+  <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--steel);">
+    <div><i class="fa-solid fa-envelope" style="margin-right: 0.5rem;"></i> info@techsoukdhaka.com</div>
+    <div><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem;"></i> Nababpur, Dhaka</div>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2025 TechSouk Dhaka — E-Commerce Software Proposal</div>
+  <div style="margin-top: 0.5rem; font-size: 0.75rem;">
+    Fire Safety Products · HVAC Valves · Industrial Solutions · Delivery Across Bangladesh
+  </div>
+</footer>
+
+<!-- FIRE CANVAS ANIMATION -->
+<script>
+const canvas = document.getElementById('fireCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class FireParticle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = canvas.height + 20;
+    this.size = Math.random() * 4 + 1;
+    this.speedY = Math.random() * 2 + 0.5;
+    this.speedX = (Math.random() - 0.5) * 0.8;
+    this.life = 1;
+    this.decay = Math.random() * 0.008 + 0.004;
+    this.hue = Math.random() * 30;
+  }
+  update() {
+    this.y -= this.speedY;
+    this.x += this.speedX;
+    this.life -= this.decay;
+    this.size *= 0.998;
+    if (this.life <= 0) this.reset();
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.life * 0.5;
+    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);
+    gradient.addColorStop(0, `hsl(${this.hue}, 100%, 70%)`);
+    gradient.addColorStop(0.5, `hsl(${this.hue + 10}, 100%, 50%)`);
+    gradient.addColorStop(1, 'transparent');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+for (let i = 0; i < 100; i++) {
+  const p = new FireParticle();
+  p.y = Math.random() * canvas.height;
+  particles.push(p);
+}
+
+function animateFire() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateFire);
+}
+animateFire();
+</script>
+
+</body>
+</html>
