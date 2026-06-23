@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=800"/>
 <title>E-Commerce Proposal — TechSouk Dhaka</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -18,7 +18,6 @@
     --border: #2a2a2a;
     --success: #22c55e;
     --warning: #f59e0b;
-    --gold: #FFD700;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -158,9 +157,9 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255,69,0,0.1);
-    border: 1px solid var(--fire);
-    color: var(--fire);
+    background: rgba(34,197,94,0.15);
+    border: 1px solid var(--success);
+    color: var(--success);
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -312,7 +311,7 @@
     color: var(--steel);
   }
 
-  /* TECH STACK */
+  /* TECH GRID */
   .tech-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -406,21 +405,21 @@
     margin-top: 0.5rem;
   }
 
-  /* TABLE */
-  .comparison-table {
+  /* FEATURES TABLE */
+  .features-table {
     width: 100%;
     border-collapse: collapse;
     margin: 2rem 0;
   }
 
-  .comparison-table th,
-  .comparison-table td {
+  .features-table th,
+  .features-table td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid var(--border);
   }
 
-  .comparison-table th {
+  .features-table th {
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
     font-size: 0.9rem;
@@ -429,14 +428,19 @@
     background: rgba(255,69,0,0.1);
   }
 
-  .comparison-table td {
+  .features-table td {
     font-size: 0.9rem;
   }
 
-  .comparison-table .check { color: var(--success); }
-  .comparison-table .cross { color: var(--ember); }
+  .features-table .check { color: var(--success); }
+  .features-table .cross { color: var(--ember); }
 
   /* PRICING CARD */
+  .pricing-section {
+    max-width: 700px;
+    margin: 2rem auto;
+  }
+
   .pricing-card {
     background: var(--charcoal);
     border: 2px solid var(--fire);
@@ -527,6 +531,67 @@
     color: var(--fire);
   }
 
+  /* ADVANTAGE BOX */
+  .advantage-box {
+    background: linear-gradient(135deg, rgba(34,197,94,0.1) 0%, rgba(34,197,94,0.05) 100%);
+    border: 1px solid rgba(34,197,94,0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .advantage-box .title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--success);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .advantage-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .advantage-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .advantage-item i {
+    color: var(--success);
+    font-size: 0.8rem;
+  }
+
+  /* INFO BOX */
+  .info-box {
+    background: rgba(255,69,0,0.05);
+    border: 1px solid rgba(255,69,0,0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-box h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--fire);
+  }
+
+  .info-box p {
+    color: var(--steel);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
   /* FOOTER */
   footer {
     position: relative;
@@ -542,7 +607,8 @@
   /* RESPONSIVE */
   @media (max-width: 1024px) {
     .feature-grid,
-    .tech-grid {
+    .tech-grid,
+    .advantage-list {
       grid-template-columns: repeat(2, 1fr);
     }
     header {
@@ -555,7 +621,8 @@
 
   @media (max-width: 640px) {
     .feature-grid,
-    .tech-grid {
+    .tech-grid,
+    .advantage-list {
       grid-template-columns: 1fr;
     }
     .hero {
@@ -596,16 +663,16 @@
 <div class="hero">
   <div class="hero-eyebrow">
     <i class="fa-solid fa-fire"></i>
-    Comprehensive E-Commerce Solution
+    Custom E-Commerce for Fire Safety
   </div>
   <h1>
-    TechSouk Dhaka
-    <br><span class="fire">E-Commerce Platform</span>
+    Fire Safety E-Commerce
+    <br><span class="fire">Built for Growth</span>
   </h1>
   <p>
-    A complete e-commerce solution tailored specifically for fire safety and industrial products.
-    Built on proven enterprise-grade technology with comprehensive features for managing products, orders, deliveries, and customers.
-    **Platform is ready — requiring frontend customization and deployment for TechSouk Dhaka.**
+    A complete e-commerce platform tailored specifically for fire safety and industrial products.
+    Built on enterprise-grade technology that scales with your business.
+    <strong>We'll customize everything to match TechSouk Dhaka's brand and vibe.</strong>
   </p>
   <div class="proposal-meta">
     <div class="meta-item">
@@ -617,8 +684,8 @@
       <div class="meta-value">Revolop Technologies</div>
     </div>
     <div class="meta-item">
-      <div class="meta-label">Service</div>
-      <div class="meta-value">Frontend Customization</div>
+      <div class="meta-label">Timeline</div>
+      <div class="meta-value">4-5 Weeks</div>
     </div>
     <div class="meta-item">
       <div class="meta-label">Technology</div>
@@ -627,24 +694,70 @@
   </div>
 </div>
 
+<!-- WHY CHOOSE US -->
+<div class="section">
+  <div class="section-label">Your Advantages</div>
+  <h2 class="section-title">Why Choose <span class="accent">Our Platform</span></h2>
+
+  <div class="advantage-box">
+    <div class="title">
+      <i class="fa-solid fa-check-circle"></i>
+      6 Reasons TechSouk Dhaka Wins
+    </div>
+    <div class="advantage-list">
+      <div class="advantage-item">
+        <i class="fa-solid fa-check"></i>
+        <span><strong>Fire Safety Specialist:</strong> Platform tailored for your industry, not generic e-commerce</span>
+      </div>
+      <div class="advantage-item">
+        <i class="fa-solid fa-check"></i>
+        <span><strong>Handles Real Traffic:</strong> Built for 1000+ concurrent users, not just 50</span>
+      </div>
+      <div class="advantage-item">
+        <i class="fa-solid fa-check"></i>
+        <span><strong>Enterprise Technology:</strong> Spring Boot powers Netflix, Amazon, Google</span>
+      </div>
+      <div class="advantage-item">
+        <i class="fa-solid fa-check"></i>
+        <span><strong>Launch Faster:</strong> 4-5 weeks vs 2-3 months building from scratch</span>
+      </div>
+      <div class="advantage-item">
+        <i class="fa-solid fa-check"></i>
+        <span><strong>Proven Platform:</strong> Already tested and deployed — no development risk</span>
+      </div>
+      <div class="advantage-item">
+        <i class="fa-solid fa-check"></i>
+        <span><strong>Grows With You:</strong> Scale to mobile app later when you need it</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h4><i class="fa-solid fa-chart-line" style="margin-right: 0.5rem;"></i> Built for Your Growth</h4>
+    <p>
+      When your user base grows, you'll have the revenue to invest in additional features. Our platform is built to handle that growth from day one — no rebuilding, no migration, no downtime. Start strong, scale stronger.
+    </p>
+  </div>
+</div>
+
 <!-- EXECUTIVE SUMMARY -->
 <div class="section">
   <div class="section-label">Overview</div>
-  <h2 class="section-title">Executive <span class="accent">Summary</span></h2>
+  <h2 class="section-title">Complete <span class="accent">Platform</span></h2>
   <p style="color: var(--steel); line-height: 1.8; max-width: 800px;">
-    TechSouk Dhaka specializes in fire safety products, HVAC systems, plumbing valves, and industrial pumps. This proposal outlines a comprehensive e-commerce platform tailored specifically for your business needs.
+    TechSouk Dhaka specializes in fire safety products, HVAC systems, plumbing valves, and industrial pumps. Our platform is designed specifically for your business needs, not generic e-commerce that doesn't understand your industry.
   </p>
   <p style="color: var(--steel); line-height: 1.8; max-width: 800px; margin-top: 1rem;">
-    The platform is fully developed and ready. Our proposal covers **frontend customization** to match TechSouk Dhaka's brand identity, product categories, and deployment. The complete system includes: Admin Panel for business management, Customer Web Application for online shopping, and a robust Backend API.
+    The complete system includes: <strong>Admin Panel</strong> for business management, <strong>Customer Web Application</strong> for online shopping, and a <strong>robust Backend API</strong> built with enterprise-grade Java Spring Boot.
   </p>
 
   <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px;">
     <div style="font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--success);">
-      <i class="fa-solid fa-check-circle" style="margin-right: 0.5rem;"></i>
-      Platform Status: Ready for Deployment
+      <i class="fa-solid fa-palette" style="margin-right: 0.5rem;"></i>
+      Tailored for TechSouk Dhaka
     </div>
     <p style="color: var(--steel); font-size: 0.9rem; margin: 0;">
-      The complete e-commerce platform is developed and tested. Only frontend branding customization and deployment required.
+      We'll customize the entire platform to match your brand — colors, layouts, product categories, and the fire safety vibe that sets you apart.
     </p>
   </div>
 
@@ -660,318 +773,210 @@
       <span><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem;"></i>Kalyanpur, Dhaka</span>
     </p>
   </div>
-
-  <div class="feature-grid" style="margin-top: 2rem;">
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-      <div class="feature-title">Industry-Specific</div>
-      <div class="feature-desc">Tailored for fire safety, HVAC, and industrial products with specialized categories and attributes.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-gauge-high"></i></div>
-      <div class="feature-title">Scalable Architecture</div>
-      <div class="feature-desc">Built on proven technology stack that handles thousands of products and orders efficiently.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-      <div class="feature-title">Multi-Platform</div>
-      <div class="feature-desc">Web-based customer interface with optional mobile app support for iOS and Android.</div>
-    </div>
-  </div>
-</div>
-
-<!-- SYSTEM ARCHITECTURE -->
-<div class="section">
-  <div class="section-label">Architecture</div>
-  <h2 class="section-title">System <span class="accent">Architecture</span></h2>
-  <p style="color: var(--steel); max-width: 700px;">A complete three-tier e-commerce ecosystem designed for scalability and ease of management.</p>
-
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-gauge"></i></div>
-      <div class="feature-title">Admin Panel (Angular)</div>
-      <div class="feature-desc">Comprehensive dashboard for managing products, orders, customers, deliveries, coupons, wallets, and all business operations.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-store"></i></div>
-      <div class="feature-title">Customer Web (Angular)</div>
-      <div class="feature-desc">User-friendly shopping interface with product browsing, cart, checkout, payment, order tracking, and wallet management.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-server"></i></div>
-      <div class="feature-title">Backend API (Spring Boot)</div>
-      <div class="feature-desc">RESTful API with comprehensive security, payment integration, notification system, and database management.</div>
-    </div>
-  </div>
-
-  <div class="tech-grid">
-    <div class="tech-item">
-      <div class="tech-icon"><i class="fa-brands fa-angular"></i></div>
-      <div class="tech-name">Angular 17+</div>
-    </div>
-    <div class="tech-item">
-      <div class="tech-icon"><i class="fa-brands fa-java"></i></div>
-      <div class="tech-name">Spring Boot</div>
-    </div>
-    <div class="tech-item">
-      <div class="tech-icon"><i class="fa-solid fa-database"></i></div>
-      <div class="tech-name">MySQL/PostgreSQL</div>
-    </div>
-    <div class="tech-item">
-      <div class="tech-icon"><i class="fa-brands fa-docker"></i></div>
-      <div class="tech-name">Docker Ready</div>
-    </div>
-  </div>
 </div>
 
 <!-- COMPREHENSIVE FEATURES -->
 <div class="section">
   <div class="section-label">Capabilities</div>
-  <h2 class="section-title">Comprehensive <span class="accent">Features</span></h2>
-
-  <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--fire);">
-    <i class="fa-solid fa-gauge" style="margin-right: 0.5rem;"></i>
-    Admin Panel Features
-  </h3>
-
-  <div class="module-list">
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Product Management</div>
-        <div class="module-desc">Full CRUD for products with variations, images, stock management, pricing, and categories. Support for fire extinguishers, valves, pumps, and all your product lines.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Category & Navigation</div>
-        <div class="module-desc">Hierarchical category structure for Fire Protection, HVAC, Plumbing, Pumps, and Accessories. Custom menu routing for easy navigation.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Order Management</div>
-        <div class="module-desc">Complete order lifecycle from placement to delivery. Order status tracking, charge calculations, and return processing.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Customer Management</div>
-        <div class="module-desc">Customer profiles, addresses, order history, wallet balances, and communication logs.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Delivery Management</div>
-        <div class="module-desc">Delivery man assignment, tracking, and commission management. Real-time delivery status updates.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">City & Area Management</div>
-        <div class="module-desc">Geographic coverage configuration for Dhaka and beyond. Area-based delivery charges and service zones.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Outlet/Store Management</div>
-        <div class="module-desc">Multi-location inventory management. Store-wise product allocation and user permissions.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Coupon System</div>
-        <div class="module-desc">Create promotional coupons with minimum purchase requirements, usage limits, and validity periods.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Wallet System</div>
-        <div class="module-desc">Customer wallet management with add money, cashback, and coin-based rewards. Configurable earn and redeem thresholds.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Advertisement & Carousel</div>
-        <div class="module-desc">Homepage banner management for promotions and featured products. Advertisement placement and tracking.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Chat & Support</div>
-        <div class="module-desc">Real-time customer support chat system. Conversation history and message management.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Target & Challenges</div>
-        <div class="module-desc">Sales targets and challenges for delivery team with subscription tracking and performance metrics.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">App Configuration</div>
-        <div class="module-desc">Centralized settings for delivery charges, payment gateways, business rules, and system parameters.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Permission Management</div>
-        <div class="module-desc">Role-based access control for admin users. Outlet-wise permissions and user management.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Stock Management</div>
-        <div class="module-desc">Inventory tracking with product variations. Low stock alerts and stock transfer between outlets.</div>
-      </div>
-    </div>
-  </div>
+  <h2 class="section-title">Features That <span class="accent">Matter</span></h2>
+  <p style="color: var(--steel); max-width: 700px;">
+    Every feature is designed with real business value. No filler menus, no unnecessary complexity — just tools that help you sell more and manage better.
+  </p>
 
   <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--fire);">
     <i class="fa-solid fa-store" style="margin-right: 0.5rem;"></i>
-    Customer Web Features
+    Customer Experience — Convert Visitors to Buyers
   </h3>
 
   <div class="module-list">
     <div class="module-item">
       <div class="module-check"><i class="fa-solid fa-check"></i></div>
       <div class="module-content">
-        <div class="module-title">Product Browsing</div>
-        <div class="module-desc">Category-wise product exploration with advanced filters, search, and sorting options.</div>
+        <div class="module-title">Fire Safety Product Catalog</div>
+        <div class="module-desc">Categories designed for your products: Extinguishers, Valves, Pumps, HVAC, Safety Equipment. Not generic categories.</div>
       </div>
     </div>
     <div class="module-item">
       <div class="module-check"><i class="fa-solid fa-check"></i></div>
       <div class="module-content">
-        <div class="module-title">Product Details</div>
-        <div class="module-desc">Detailed product pages with images, specifications, variants, stock status, and reviews.</div>
+        <div class="module-title">Smart Search & Filters</div>
+        <div class="module-desc">Customers find exactly what they need. Filter by type, size, price range, brand — fast and intuitive.</div>
       </div>
     </div>
     <div class="module-item">
       <div class="module-check"><i class="fa-solid fa-check"></i></div>
       <div class="module-content">
-        <div class="module-title">Shopping Cart</div>
-        <div class="module-desc">Persistent cart with quantity management, stock validation, and coupon application.</div>
+        <div class="module-title">Detailed Product Pages</div>
+        <div class="module-desc">Specifications, certifications (UL Listed, BNBC Compliant), images, stock status, customer reviews.</div>
       </div>
     </div>
     <div class="module-item">
       <div class="module-check"><i class="fa-solid fa-check"></i></div>
       <div class="module-content">
-        <div class="module-title">Checkout Process</div>
-        <div class="module-desc">Streamlined checkout with address selection, delivery time slot, payment method, and order confirmation.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Payment Integration</div>
-        <div class="module-desc">Multiple payment options including Cash on Delivery, bKash, Nagad, and card payments via SSLCommerz.</div>
+        <div class="module-title">Easy Checkout</div>
+        <div class="module-desc">Streamlined process with address saving, delivery time selection, and multiple payment options.</div>
       </div>
     </div>
     <div class="module-item">
       <div class="module-check"><i class="fa-solid fa-check"></i></div>
       <div class="module-content">
         <div class="module-title">Order Tracking</div>
-        <div class="module-desc">Real-time order status updates from processing to delivery. Order history with detailed views.</div>
+        <div class="module-desc">Customers track their orders in real-time. Processing → Packed → Shipped → Delivered.</div>
       </div>
     </div>
     <div class="module-item">
       <div class="module-check"><i class="fa-solid fa-check"></i></div>
       <div class="module-content">
         <div class="module-title">Customer Account</div>
-        <div class="module-desc">Profile management, saved addresses, wallet access, and order preferences.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Wallet & Rewards</div>
-        <div class="module-desc">Digital wallet for payments, coin earning on purchases, and reward redemption at checkout.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Live Chat Support</div>
-        <div class="module-desc">WhatsApp-style chat for instant customer support and product inquiries.</div>
-      </div>
-    </div>
-    <div class="module-item">
-      <div class="module-check"><i class="fa-solid fa-check"></i></div>
-      <div class="module-content">
-        <div class="module-title">Referral System</div>
-        <div class="module-desc">Customer referral program with rewards for bringing new users to the platform.</div>
+        <div class="module-desc">Order history, saved addresses, wishlist, profile management — everything in one place.</div>
       </div>
     </div>
   </div>
+
+  <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--fire);">
+    <i class="fa-solid fa-gauge" style="margin-right: 0.5rem;"></i>
+    Admin Panel — Manage Everything Efficiently
+  </h3>
+
+  <div class="module-list">
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Product & Inventory Management</div>
+        <div class="module-desc">Add products with fire safety specifications. Track stock, set low-stock alerts, manage variants.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Order Processing Dashboard</div>
+        <div class="module-desc">See all orders, update status, assign for delivery, print invoices — one efficient workflow.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Customer Management</div>
+        <div class="module-desc">View customer profiles, order history, contact details. Understand your buyers better.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Delivery Management</div>
+        <div class="module-desc">Assign delivery persons, track deliveries, calculate delivery charges by zone (Dhaka/Outside).</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Payment Collection</div>
+        <div class="module-desc">Integrated bKash, Nagad, SSLCommerz, and Cash on Delivery. Real-time payment tracking.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Reports & Analytics</div>
+        <div class="module-desc">Sales reports, best-selling products, customer insights. Make data-driven decisions.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Coupon & Promotions</div>
+        <div class="module-desc">Create discount coupons, set minimum purchase requirements, track usage.</div>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-check"><i class="fa-solid fa-check"></i></div>
+      <div class="module-content">
+        <div class="module-title">Site Content Management</div>
+        <div class="module-desc">Update banners, homepage sliders, announcements. Control what customers see.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-top: 2rem;">
+    <h4><i class="fa-solid fa-lightbulb" style="margin-right: 0.5rem;"></i> What We Don't Do</h4>
+    <p>
+      We don't add filler menus to make the feature list longer. Every feature serves a real business purpose. You get tools that help you sell, manage, and grow — not a dashboard full of lists you'll never use.
+    </p>
+  </div>
 </div>
 
-<!-- TECH STACK DETAILS -->
+<!-- TECH STACK -->
 <div class="section">
   <div class="section-label">Technology</div>
-  <h2 class="section-title">Technology <span class="accent">Stack</span></h2>
+  <h2 class="section-title">Enterprise <span class="accent">Technology</span></h2>
 
-  <table class="comparison-table">
+  <p style="color: var(--steel); max-width: 700px; margin-bottom: 2rem;">
+    Your e-commerce platform handles real customers and real transactions. Technology choice matters.
+  </p>
+
+  <table class="features-table">
     <thead>
       <tr>
-        <th>Layer</th>
+        <th>Component</th>
         <th>Technology</th>
-        <th>Purpose</th>
+        <th>Why This Matters</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Frontend Admin</td>
+        <td>Frontend</td>
         <td>Angular 17+ / TypeScript</td>
-        <td>Responsive admin dashboard with real-time updates</td>
-      </tr>
-      <tr>
-        <td>Frontend Customer</td>
-        <td>Angular 17+ / Tailwind CSS</td>
-        <td>Modern shopping experience with mobile-first design</td>
+        <td>Fast, responsive, modern. Used by Google, Microsoft.</td>
       </tr>
       <tr>
         <td>Backend API</td>
         <td>Spring Boot / Java 17+</td>
-        <td>RESTful services with enterprise security</td>
+        <td>Enterprise-grade. Powers Netflix, Amazon. Handles high load.</td>
       </tr>
       <tr>
         <td>Database</td>
         <td>MySQL / PostgreSQL</td>
-        <td>Relational data storage with ACID compliance</td>
+        <td>Reliable, ACID compliant for transaction safety.</td>
       </tr>
       <tr>
         <td>Authentication</td>
         <td>Spring Security / JWT</td>
-        <td>Secure token-based authentication</td>
+        <td>Bank-grade security for customer data.</td>
       </tr>
       <tr>
         <td>Payment Gateway</td>
-        <td>SSLCommerz / bKash API</td>
-        <td>Integrated payment processing</td>
+        <td>SSLCommerz / bKash / Nagad</td>
+        <td>All major Bangladesh payment methods supported.</td>
       </tr>
       <tr>
-        <td>Deployment</td>
-        <td>Docker / AWS / DigitalOcean</td>
-        <td>Containerized deployment for scalability</td>
+        <td>Infrastructure</td>
+        <td>Docker Ready</td>
+        <td>Easy deployment, scaling, and backup.</td>
       </tr>
     </tbody>
   </table>
+
+  <div class="info-box">
+    <h4><i class="fa-solid fa-users" style="margin-right: 0.5rem;"></i> Built for Real Traffic</h4>
+    <p>
+      Traditional platforms struggle with concurrent users. Our Spring Boot architecture handles 1000+ simultaneous users without breaking a sweat. When your promotional campaign brings hundreds of visitors at once, your site stays fast and responsive.
+    </p>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,69,0,0.05); border: 1px solid rgba(255,69,0,0.2); border-radius: 8px;">
+    <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--fire);">
+      <i class="fa-solid fa-building" style="margin-right: 0.5rem;"></i>
+      Who Uses Spring Boot?
+    </h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+      <span style="background: var(--charcoal); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">Netflix</span>
+      <span style="background: var(--charcoal); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">Amazon</span>
+      <span style="background: var(--charcoal); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">Microsoft</span>
+      <span style="background: var(--charcoal); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">Google</span>
+      <span style="background: var(--charcoal); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">IBM</span>
+      <span style="background: var(--charcoal); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem;">Oracle</span>
+    </div>
+  </div>
 </div>
 
 <!-- IMPLEMENTATION TIMELINE -->
@@ -981,67 +986,68 @@
 
   <div class="timeline">
     <div class="timeline-item">
-      <div class="timeline-phase">Phase 1 — Brand Customization</div>
-      <div class="timeline-title">Frontend Theming & Identity</div>
+      <div class="timeline-phase">Phase 1 — Branding</div>
+      <div class="timeline-title">Fire Safety Theme Customization</div>
       <div class="timeline-desc">
-        Apply TechSouk Dhaka branding across customer web and admin panel.
-        Customize colors, logos, banners, and navigation to match your fire safety theme.
+        We'll design and customize the entire platform around TechSouk Dhaka's brand.
+        Fire safety color scheme, custom layouts, logo integration, banners, and navigation.
+        Your vibe, our technology.
       </div>
       <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 1-2 Weeks</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-phase">Phase 2 — Product Configuration</div>
-      <div class="timeline-title">Categories & Products Setup</div>
+      <div class="timeline-phase">Phase 2 — Products</div>
+      <div class="timeline-title">Your Product Catalog Setup</div>
       <div class="timeline-desc">
-        Configure fire safety categories (Extinguishers, Valves, Pumps, HVAC).
-        Set up product attributes, specifications, and inventory structure.
+        Configure categories: Fire Extinguishers, Valves, Fittings, Pumps, HVAC.
+        Set up product attributes and specifications specific to your industry.
       </div>
       <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 1 Week</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-phase">Phase 3 — Payment & Delivery</div>
-      <div class="timeline-title">Gateway Integration & Zones</div>
+      <div class="timeline-phase">Phase 3 — Integration</div>
+      <div class="timeline-title">Payment & Delivery Setup</div>
       <div class="timeline-desc">
-        Configure payment gateways (bKash, Nagad, SSLCommerz, COD).
-        Set up delivery zones for Dhaka and outside Dhaka with appropriate charges.
+        Integrate payment gateways (bKash, Nagad, SSLCommerz, COD).
+        Configure delivery zones: Inside Dhaka and Outside Dhaka with appropriate charges.
       </div>
       <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 1 Week</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-phase">Phase 4 — Deployment</div>
-      <div class="timeline-title">Testing & Launch</div>
+      <div class="timeline-phase">Phase 4 — Launch</div>
+      <div class="timeline-title">Testing & Deployment</div>
       <div class="timeline-desc">
-        End-to-end testing, domain configuration, SSL setup,
-        staff training, and production deployment.
+        End-to-end testing, domain configuration, SSL certificate,
+        staff training, and final production deployment.
       </div>
       <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 1 Week</div>
     </div>
   </div>
 
   <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); border-radius: 8px;">
-    <div style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">
-      <i class="fa-solid fa-calendar-check" style="color: var(--success); margin-right: 0.5rem;"></i>
-      Total Estimated Timeline: 4-5 Weeks
+    <div style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--success);">
+      <i class="fa-solid fa-calendar-check" style="margin-right: 0.5rem;"></i>
+      Total: 4-5 Weeks to Launch
     </div>
-    <p style="color: var(--steel); font-size: 0.9rem;">Quick deployment since core platform is fully developed and tested.</p>
+    <p style="color: var(--steel); font-size: 0.9rem; margin: 0;">
+      Custom-built for TechSouk Dhaka. We design, build, and deploy everything tailored to your brand and fire safety vibe.
+    </p>
   </div>
 </div>
 
 <!-- PRICING -->
 <div class="section">
   <div class="section-label">Investment</div>
-  <h2 class="section-title">Pricing <span class="accent">Proposal</span></h2>
+  <h2 class="section-title">Simple <span class="accent">Pricing</span></h2>
 
-  <div style="max-width: 600px; margin: 2rem auto;">
-    <div style="background: var(--charcoal); border: 2px solid var(--fire); border-radius: 16px; padding: 3rem; text-align: center; position: relative; overflow: hidden;">
-      <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--fire), var(--ember));"></div>
-
+  <div class="pricing-section">
+    <div class="pricing-card">
       <div style="font-size: 0.75rem; color: var(--fire); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">
-        Complete E-Commerce Solution
+        Complete E-Commerce Platform — Everything Included
       </div>
 
       <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">
-        Platform Deployment & Customization
+        Full Platform Deployment
       </h3>
 
       <div style="font-family: 'Rajdhani', sans-serif; font-size: 4rem; font-weight: 700; color: var(--fire); line-height: 1; margin-bottom: 0.5rem;">
@@ -1049,91 +1055,169 @@
       </div>
 
       <div style="font-size: 0.85rem; color: var(--steel); margin-bottom: 2rem;">
-        One-time payment for complete platform setup
+        One-time payment — No hidden charges
       </div>
 
       <div style="text-align: left; margin-bottom: 2rem;">
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">Complete e-commerce platform (Admin + Customer Web + Backend)</span>
+          <span style="font-size: 0.9rem;"><strong>Complete platform:</strong> Admin Panel + Customer Web + Backend API</span>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">TechSouk Dhaka branding customization (Fire & Safety theme)</span>
+          <span style="font-size: 0.9rem;"><strong>Fire safety branding:</strong> Theme customized for TechSouk Dhaka</span>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">Fire safety product categories configuration</span>
+          <span style="font-size: 0.9rem;"><strong>Product catalog setup:</strong> Categories configured for your products</span>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">Payment gateway integration (bKash, Nagad, SSLCommerz, COD)</span>
+          <span style="font-size: 0.9rem;"><strong>Payment integration:</strong> bKash, Nagad, SSLCommerz, COD</span>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">Delivery zone setup (Dhaka + Outside Dhaka)</span>
+          <span style="font-size: 0.9rem;"><strong>Delivery zones setup:</strong> Dhaka + Outside Dhaka with charges</span>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">Server deployment & domain configuration</span>
+          <span style="font-size: 0.9rem;"><strong>Deployment:</strong> Server setup, domain, SSL configuration</span>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">SSL certificate setup</span>
+          <span style="font-size: 0.9rem;"><strong>Training:</strong> Staff training and user manual included</span>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">Staff training & documentation</span>
-        </div>
-        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
-          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">3 months technical support</span>
+          <span style="font-size: 0.9rem;"><strong>Support:</strong> 90 days free bug-fixing support</span>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0;">
           <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
-          <span style="font-size: 0.9rem;">Source code included</span>
+          <span style="font-size: 0.9rem;"><strong>Source code:</strong> 100% ownership — complete transfer</span>
         </div>
       </div>
 
-      <a href="tel:01725717136" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--fire); color: white; padding: 1rem 2.5rem; font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s; text-decoration: none;" onmouseover="this.style.background='var(--ember)'" onmouseout="this.style.background='var(--fire)'">
-        <i class="fa-solid fa-phone"></i> Accept Proposal
+      <a href="tel:01725717136" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--fire); color: white; padding: 1rem 2.5rem; font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s; text-decoration: none; width: 100%;" onmouseover="this.style.background='var(--ember)'" onmouseout="this.style.background='var(--fire)'">
+        <i class="fa-solid fa-phone"></i> Accept Proposal — Call Now
       </a>
+
+      <div style="margin-top: 2rem; padding: 1rem; background: rgba(34,197,94,0.1); border-radius: 8px;">
+        <div style="font-size: 0.85rem; color: var(--steel); margin-bottom: 0.5rem;">Payment Terms</div>
+        <div style="font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 600;">
+          50% Advance • 25% Demo Approval • 25% Final Delivery
+        </div>
+        <div style="font-size: 0.75rem; color: var(--success); margin-top: 0.25rem;">
+          <i class="fa-solid fa-shield-halved"></i> Fair terms — you approve before final payment
+        </div>
+      </div>
     </div>
   </div>
 
-  <p style="text-align: center; color: var(--steel); font-size: 0.85rem; margin-top: 2rem;">
-    * Server costs, payment gateway fees, and SMS charges are separate and paid directly to service providers.
-  </p>
+  <div style="max-width: 700px; margin: 2rem auto; padding: 1.5rem; background: var(--charcoal); border: 1px solid var(--border); border-radius: 8px;">
+    <h4 style="font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--smoke);">
+      <i class="fa-solid fa-info-circle" style="color: var(--fire); margin-right: 0.5rem;"></i>
+      Additional Costs (Paid Directly by You)
+    </h4>
+    <ul style="color: var(--steel); font-size: 0.85rem; line-height: 1.8; padding-left: 1.5rem;">
+      <li>Domain registration (~৳1,000/year — your choice of registrar)</li>
+      <li>Server hosting (~৳500-1,500/month — your choice of provider)</li>
+      <li>Payment gateway fees (standard bKash/Nagad merchant rates)</li>
+      <li>SMS costs (paid directly to SMS gateway — per use)</li>
+    </ul>
+  </div>
 </div>
 
-<!-- MAINTENANCE -->
+<!-- SCALABILITY -->
 <div class="section">
-  <div class="section-label">Support</div>
-  <h2 class="section-title">Maintenance & <span class="accent">Support</span></h2>
+  <div class="section-label">Future</div>
+  <h2 class="section-title">Ready to <span class="accent">Scale</span></h2>
+
+  <p style="color: var(--steel); max-width: 700px; margin-bottom: 2rem;">
+    Your business will grow. When it does, you'll have the revenue to invest in mobile apps and additional features. Our platform is built to handle that growth from day one.
+  </p>
 
   <div class="feature-grid">
     <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
-      <div class="feature-title">Launch Support</div>
-      <div class="feature-desc">6 months of technical support included with all packages. Bug fixes and minor adjustments at no extra cost.</div>
+      <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <div class="feature-title">Handles Growth</div>
+      <div class="feature-desc">Built for 1000+ concurrent users. No rebuilding when traffic increases.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
-      <div class="feature-title">Annual Maintenance</div>
-      <div class="feature-desc">Optional annual maintenance contract at 15% of project value for ongoing updates, security patches, and feature additions.</div>
+      <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+      <div class="feature-title">Mobile When Ready</div>
+      <div class="feature-desc">Add Android app later when you have the user base. Platform supports it.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-      <div class="feature-title">Training</div>
-      <div class="feature-desc">Admin and staff training sessions included. User manuals and documentation provided for self-learning.</div>
+      <div class="feature-icon"><i class="fa-solid fa-code-branch"></i></div>
+      <div class="feature-title">Easy Expansion</div>
+      <div class="feature-desc">Add features, outlets, or product lines. Platform scales with you.</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h4><i class="fa-solid fa-piggy-bank" style="margin-right: 0.5rem;"></i> Smart Investment</h4>
+    <p>
+      When your users grow, you'll have the income to invest in additional features. Build what you need now, scale when you're ready. Don't overpay for features you won't use yet.
+    </p>
+  </div>
+</div>
+
+<!-- SUPPORT & OWNERSHIP -->
+<div class="section">
+  <div class="section-label">After Launch</div>
+  <h2 class="section-title">Support & <span class="accent">Ownership</span></h2>
+
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+    <div>
+      <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--fire);">
+        <i class="fa-solid fa-shield-halved" style="margin-right: 0.5rem;"></i>
+        90-Day Warranty
+      </h3>
+      <p style="color: var(--steel); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">
+        Free bug-fixing support for 90 days after delivery. We fix:
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.85rem; color: var(--steel);">
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>System errors</div>
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Functional issues</div>
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Payment problems</div>
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Login issues</div>
+      </div>
+
+      <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,69,0,0.05); border-radius: 8px;">
+        <div style="font-size: 0.8rem; color: var(--steel); margin-bottom: 0.25rem;">Annual Support Option</div>
+        <div style="font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 600; color: var(--smoke);">
+          ৳6,000/year
+        </div>
+        <div style="font-size: 0.75rem; color: var(--steel); margin-top: 0.25rem;">
+          Updates, backups, and ongoing support
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--fire);">
+        <i class="fa-solid fa-key" style="margin-right: 0.5rem;"></i>
+        Complete Ownership
+      </h3>
+      <p style="color: var(--steel); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">
+        Upon full payment, you receive 100% ownership:
+      </p>
+      <div style="display: grid; gap: 0.75rem; font-size: 0.85rem; color: var(--steel);">
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Complete source code (Admin + Web + API)</div>
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Database and all data</div>
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Domain registered in your name</div>
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Full hosting control panel access</div>
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>cPanel and database access</div>
+        <div><i class="fa-solid fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>No licensing fees ever</div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
 <div class="cta-section">
-  <h3>Ready to Transform Your E-Commerce Presence?</h3>
-  <p>Let's discuss how a custom e-commerce platform can power TechSouk Dhaka's online growth with a solution tailored to your needs.</p>
+  <h3>Ready to Launch Your E-Commerce Platform?</h3>
+  <p>Platform is ready, tested, and proven. Let's get TechSouk Dhaka online in 4-5 weeks.</p>
   <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
     <a href="tel:01725717136" class="btn-primary">
       <i class="fa-solid fa-phone"></i> Call 01725717136
