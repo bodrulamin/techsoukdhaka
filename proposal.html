@@ -312,115 +312,6 @@
     color: var(--steel);
   }
 
-  /* PRICING */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .pricing-card {
-    background: var(--charcoal);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .pricing-card.featured {
-    border-color: var(--fire);
-    box-shadow: 0 0 30px rgba(255,69,0,0.15);
-  }
-
-  .pricing-card.featured::before {
-    content: 'RECOMMENDED';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--fire);
-    color: white;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    padding: 0.3rem 1rem;
-    border-radius: 0 0 8px 8px;
-  }
-
-  .pricing-tier {
-    font-size: 0.8rem;
-    color: var(--steel);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .pricing-name {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .pricing-price {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--fire);
-    margin-bottom: 1.5rem;
-  }
-
-  .pricing-price span {
-    font-size: 1rem;
-    color: var(--steel);
-    font-weight: 400;
-  }
-
-  .pricing-features {
-    text-align: left;
-    margin-bottom: 2rem;
-  }
-
-  .pricing-features div {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.85rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .pricing-features i {
-    color: var(--fire);
-    font-size: 0.75rem;
-  }
-
-  .pricing-cta {
-    width: 100%;
-    padding: 0.85rem;
-    background: var(--border);
-    border: none;
-    color: var(--smoke);
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.2s;
-  }
-
-  .pricing-cta:hover {
-    background: var(--fire);
-  }
-
-  .pricing-card.featured .pricing-cta {
-    background: var(--fire);
-  }
-
   /* TECH STACK */
   .tech-grid {
     display: grid;
@@ -545,6 +436,27 @@
   .comparison-table .check { color: var(--success); }
   .comparison-table .cross { color: var(--ember); }
 
+  /* PRICING CARD */
+  .pricing-card {
+    background: var(--charcoal);
+    border: 2px solid var(--fire);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--fire), var(--ember));
+  }
+
   /* CTA SECTION */
   .cta-section {
     text-align: center;
@@ -630,7 +542,6 @@
   /* RESPONSIVE */
   @media (max-width: 1024px) {
     .feature-grid,
-    .pricing-grid,
     .tech-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -644,7 +555,6 @@
 
   @media (max-width: 640px) {
     .feature-grid,
-    .pricing-grid,
     .tech-grid {
       grid-template-columns: 1fr;
     }
@@ -693,8 +603,9 @@
     <br><span class="fire">E-Commerce Platform</span>
   </h1>
   <p>
-    A complete custom e-commerce solution tailored specifically for fire safety and industrial products.
-    Built on enterprise-grade technology with comprehensive features for managing products, orders, deliveries, and customers.
+    A complete e-commerce solution tailored specifically for fire safety and industrial products.
+    Built on proven enterprise-grade technology with comprehensive features for managing products, orders, deliveries, and customers.
+    **Platform is ready — requiring frontend customization and deployment for TechSouk Dhaka.**
   </p>
   <div class="proposal-meta">
     <div class="meta-item">
@@ -706,8 +617,8 @@
       <div class="meta-value">Revolop Technologies</div>
     </div>
     <div class="meta-item">
-      <div class="meta-label">Implementation</div>
-      <div class="meta-value">3-4 Months</div>
+      <div class="meta-label">Service</div>
+      <div class="meta-value">Frontend Customization</div>
     </div>
     <div class="meta-item">
       <div class="meta-label">Technology</div>
@@ -721,11 +632,34 @@
   <div class="section-label">Overview</div>
   <h2 class="section-title">Executive <span class="accent">Summary</span></h2>
   <p style="color: var(--steel); line-height: 1.8; max-width: 800px;">
-    TechSouk Dhaka specializes in fire safety products, HVAC systems, plumbing valves, and industrial pumps. This proposal outlines a comprehensive custom e-commerce platform designed specifically for your business needs.
+    TechSouk Dhaka specializes in fire safety products, HVAC systems, plumbing valves, and industrial pumps. This proposal outlines a comprehensive e-commerce platform tailored specifically for your business needs.
   </p>
   <p style="color: var(--steel); line-height: 1.8; max-width: 800px; margin-top: 1rem;">
-    The platform includes three main components: a powerful Admin Panel for business management, a Customer Web Application for online shopping, and a robust Backend API built with enterprise-grade Java Spring Boot.
+    The platform is fully developed and ready. Our proposal covers **frontend customization** to match TechSouk Dhaka's brand identity, product categories, and deployment. The complete system includes: Admin Panel for business management, Customer Web Application for online shopping, and a robust Backend API.
   </p>
+
+  <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px;">
+    <div style="font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--success);">
+      <i class="fa-solid fa-check-circle" style="margin-right: 0.5rem;"></i>
+      Platform Status: Ready for Deployment
+    </div>
+    <p style="color: var(--steel); font-size: 0.9rem; margin: 0;">
+      The complete e-commerce platform is developed and tested. Only frontend branding customization and deployment required.
+    </p>
+  </div>
+
+  <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(255,69,0,0.05); border: 1px solid rgba(255,69,0,0.2); border-radius: 8px;">
+    <div style="font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--smoke);">
+      <i class="fa-solid fa-code" style="color: var(--fire); margin-right: 0.5rem;"></i>
+      Developed by Revolop Technologies
+    </div>
+    <p style="color: var(--steel); font-size: 0.9rem; margin: 0;">
+      Professional software development company specializing in e-commerce solutions, web applications, and enterprise systems.
+      <br><span style="color: var(--fire);"><i class="fa-solid fa-globe" style="margin-right: 0.5rem;"></i>revolop.com</span>
+      <span style="margin: 0 1rem;">|</span>
+      <span><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem;"></i>Kalyanpur, Dhaka</span>
+    </p>
+  </div>
 
   <div class="feature-grid" style="margin-top: 2rem;">
     <div class="feature-card">
@@ -1047,113 +981,128 @@
 
   <div class="timeline">
     <div class="timeline-item">
-      <div class="timeline-phase">Phase 1 — Foundation</div>
-      <div class="timeline-title">Setup & Configuration</div>
+      <div class="timeline-phase">Phase 1 — Brand Customization</div>
+      <div class="timeline-title">Frontend Theming & Identity</div>
       <div class="timeline-desc">
-        Server setup, database configuration, base project setup, and environment configuration.
-        Brand customization with TechSouk Dhaka identity and fire safety theme.
+        Apply TechSouk Dhaka branding across customer web and admin panel.
+        Customize colors, logos, banners, and navigation to match your fire safety theme.
       </div>
-      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 3-4 Weeks</div>
+      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 1-2 Weeks</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-phase">Phase 2 — Core Development</div>
-      <div class="timeline-title">Product & Order Management</div>
+      <div class="timeline-phase">Phase 2 — Product Configuration</div>
+      <div class="timeline-title">Categories & Products Setup</div>
       <div class="timeline-desc">
-        Product management with fire safety categories, order processing workflow,
-        customer registration, and authentication system.
+        Configure fire safety categories (Extinguishers, Valves, Pumps, HVAC).
+        Set up product attributes, specifications, and inventory structure.
       </div>
-      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 5-6 Weeks</div>
+      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 1 Week</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-phase">Phase 3 — Advanced Features</div>
-      <div class="timeline-title">Payment, Delivery & Wallet</div>
+      <div class="timeline-phase">Phase 3 — Payment & Delivery</div>
+      <div class="timeline-title">Gateway Integration & Zones</div>
       <div class="timeline-desc">
-        Payment gateway integration (SSLCommerz, bKash), delivery management system,
-        wallet functionality, and notification system.
+        Configure payment gateways (bKash, Nagad, SSLCommerz, COD).
+        Set up delivery zones for Dhaka and outside Dhaka with appropriate charges.
       </div>
-      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 4-5 Weeks</div>
+      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 1 Week</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-phase">Phase 4 — Testing & Launch</div>
-      <div class="timeline-title">Quality Assurance & Deployment</div>
+      <div class="timeline-phase">Phase 4 — Deployment</div>
+      <div class="timeline-title">Testing & Launch</div>
       <div class="timeline-desc">
-        End-to-end testing, bug fixes, performance optimization,
-        data migration from existing systems, and production deployment.
+        End-to-end testing, domain configuration, SSL setup,
+        staff training, and production deployment.
       </div>
-      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 3-4 Weeks</div>
+      <div class="timeline-duration"><i class="fa-regular fa-clock"></i> 1 Week</div>
     </div>
   </div>
 
-  <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,69,0,0.08); border: 1px solid rgba(255,69,0,0.2); border-radius: 8px;">
+  <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); border-radius: 8px;">
     <div style="font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">
-      <i class="fa-solid fa-calendar-check" style="color: var(--fire); margin-right: 0.5rem;"></i>
-      Total Estimated Timeline: 15-19 Weeks (3.5-4.5 Months)
+      <i class="fa-solid fa-calendar-check" style="color: var(--success); margin-right: 0.5rem;"></i>
+      Total Estimated Timeline: 4-5 Weeks
     </div>
-    <p style="color: var(--steel); font-size: 0.9rem;">Timeline may vary based on customization requirements and data migration complexity.</p>
+    <p style="color: var(--steel); font-size: 0.9rem;">Quick deployment since core platform is fully developed and tested.</p>
   </div>
 </div>
 
 <!-- PRICING -->
 <div class="section">
   <div class="section-label">Investment</div>
-  <h2 class="section-title">Pricing <span class="accent">Options</span></h2>
+  <h2 class="section-title">Pricing <span class="accent">Proposal</span></h2>
 
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-tier">Essential</div>
-      <div class="pricing-name">Basic Package</div>
-      <div class="pricing-price"><span>৳</span> 350,000</div>
-      <div class="pricing-features">
-        <div><i class="fa-solid fa-check"></i> Core Admin Panel</div>
-        <div><i class="fa-solid fa-check"></i> Customer Web Store</div>
-        <div><i class="fa-solid fa-check"></i> Product Management</div>
-        <div><i class="fa-solid fa-check"></i> Order Processing</div>
-        <div><i class="fa-solid fa-check"></i> Basic Reports</div>
-        <div><i class="fa-solid fa-check"></i> COD Payment</div>
-        <div style="color: var(--steel);"><i class="fa-solid fa-times" style="color: var(--steel);"></i> Wallet System</div>
-        <div style="color: var(--steel);"><i class="fa-solid fa-times" style="color: var(--steel);"></i> Mobile App</div>
-      </div>
-      <button class="pricing-cta">Select Basic</button>
-    </div>
+  <div style="max-width: 600px; margin: 2rem auto;">
+    <div style="background: var(--charcoal); border: 2px solid var(--fire); border-radius: 16px; padding: 3rem; text-align: center; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--fire), var(--ember));"></div>
 
-    <div class="pricing-card featured">
-      <div class="pricing-tier">Recommended</div>
-      <div class="pricing-name">Professional Package</div>
-      <div class="pricing-price"><span>৳</span> 550,000</div>
-      <div class="pricing-features">
-        <div><i class="fa-solid fa-check"></i> Everything in Basic</div>
-        <div><i class="fa-solid fa-check"></i> Wallet & Rewards</div>
-        <div><i class="fa-solid fa-check"></i> Payment Gateway Integration</div>
-        <div><i class="fa-solid fa-check"></i> Delivery Management</div>
-        <div><i class="fa-solid fa-check"></i> Coupon System</div>
-        <div><i class="fa-solid fa-check"></i> Advanced Analytics</div>
-        <div><i class="fa-solid fa-check"></i> Chat Support System</div>
-        <div style="color: var(--steel);"><i class="fa-solid fa-times" style="color: var(--steel);"></i> Mobile App</div>
+      <div style="font-size: 0.75rem; color: var(--fire); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">
+        Complete E-Commerce Solution
       </div>
-      <button class="pricing-cta">Select Professional</button>
-    </div>
 
-    <div class="pricing-card">
-      <div class="pricing-tier">Enterprise</div>
-      <div class="pricing-name">Complete Solution</div>
-      <div class="pricing-price"><span>৳</span> 850,000</div>
-      <div class="pricing-features">
-        <div><i class="fa-solid fa-check"></i> Everything in Professional</div>
-        <div><i class="fa-solid fa-check"></i> Customer Mobile App (Android)</div>
-        <div><i class="fa-solid fa-check"></i> Multi-Outlet Management</div>
-        <div><i class="fa-solid fa-check"></i> Target & Challenge System</div>
-        <div><i class="fa-solid fa-check"></i> Advanced Customization</div>
-        <div><i class="fa-solid fa-check"></i> Priority Support</div>
-        <div><i class="fa-solid fa-check"></i> 1 Year Free Maintenance</div>
-        <div><i class="fa-solid fa-check"></i> Training Documentation</div>
+      <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">
+        Platform Deployment & Customization
+      </h3>
+
+      <div style="font-family: 'Rajdhani', sans-serif; font-size: 4rem; font-weight: 700; color: var(--fire); line-height: 1; margin-bottom: 0.5rem;">
+        ৳40,000
       </div>
-      <button class="pricing-cta">Select Enterprise</button>
+
+      <div style="font-size: 0.85rem; color: var(--steel); margin-bottom: 2rem;">
+        One-time payment for complete platform setup
+      </div>
+
+      <div style="text-align: left; margin-bottom: 2rem;">
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">Complete e-commerce platform (Admin + Customer Web + Backend)</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">TechSouk Dhaka branding customization (Fire & Safety theme)</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">Fire safety product categories configuration</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">Payment gateway integration (bKash, Nagad, SSLCommerz, COD)</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">Delivery zone setup (Dhaka + Outside Dhaka)</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">Server deployment & domain configuration</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">SSL certificate setup</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">Staff training & documentation</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">3 months technical support</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 0;">
+          <i class="fa-solid fa-check" style="color: var(--success); margin-top: 4px;"></i>
+          <span style="font-size: 0.9rem;">Source code included</span>
+        </div>
+      </div>
+
+      <a href="tel:01725717136" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--fire); color: white; padding: 1rem 2.5rem; font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s; text-decoration: none;" onmouseover="this.style.background='var(--ember)'" onmouseout="this.style.background='var(--fire)'">
+        <i class="fa-solid fa-phone"></i> Accept Proposal
+      </a>
     </div>
   </div>
 
-  <p style="text-align: center; color: var(--steel); font-size: 0.85rem; margin-top: 1.5rem;">
-    * All packages include source code, deployment assistance, and 6 months of technical support.
-    <br>Server costs, payment gateway fees, and SMS charges are separate.
+  <p style="text-align: center; color: var(--steel); font-size: 0.85rem; margin-top: 2rem;">
+    * Server costs, payment gateway fees, and SMS charges are separate and paid directly to service providers.
   </p>
 </div>
 
@@ -1186,16 +1135,18 @@
   <h3>Ready to Transform Your E-Commerce Presence?</h3>
   <p>Let's discuss how a custom e-commerce platform can power TechSouk Dhaka's online growth with a solution tailored to your needs.</p>
   <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
-    <a href="tel:01919292764" class="btn-primary">
-      <i class="fa-solid fa-phone"></i> Call 01919292764
+    <a href="tel:01725717136" class="btn-primary">
+      <i class="fa-solid fa-phone"></i> Call 01725717136
     </a>
-    <a href="https://wa.me/8801919292764" class="btn-secondary" target="_blank">
+    <a href="https://wa.me/8801725717136" class="btn-secondary" target="_blank">
       <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
     </a>
   </div>
   <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--steel);">
-    <div><i class="fa-solid fa-envelope" style="margin-right: 0.5rem;"></i> info@techsoukdhaka.com</div>
-    <div><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem;"></i> Nababpur, Dhaka</div>
+    <div><i class="fa-solid fa-envelope" style="margin-right: 0.5rem;"></i> contact@revolop.com</div>
+    <div><i class="fa-solid fa-globe" style="margin-right: 0.5rem;"></i> revolop.com</div>
+    <div><i class="fa-solid fa-building" style="margin-right: 0.5rem;"></i> Revolop Technologies</div>
+    <div><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem;"></i> Kalyanpur, Dhaka</div>
   </div>
 </div>
 
@@ -1203,9 +1154,14 @@
 
 <!-- FOOTER -->
 <footer>
-  <div>© 2025 TechSouk Dhaka — E-Commerce Software Proposal</div>
+  <div>© 2025 TechSouk Dhaka — E-Commerce Software Proposal | Developed by Revolop Technologies</div>
   <div style="margin-top: 0.5rem; font-size: 0.75rem;">
     Fire Safety Products · HVAC Valves · Industrial Solutions · Delivery Across Bangladesh
+  </div>
+  <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #333;">
+    <i class="fa-solid fa-envelope" style="margin-right: 0.3rem;"></i>contact@revolop.com ·
+    <i class="fa-solid fa-globe" style="margin-right: 0.3rem; margin-left: 0.5rem;"></i>revolop.com ·
+    <i class="fa-solid fa-phone" style="margin-right: 0.3rem; margin-left: 0.5rem;"></i>01725717136 · Kalyanpur, Dhaka
   </div>
 </footer>
 
